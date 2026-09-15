@@ -186,11 +186,11 @@
   <div class="note">
     <div>
       <b>この画面が答えること</b>
-      <span>施工した箇所のうち、衛星の向きと相性が良いのはどれか。相性の良いものは、いつから、どれだけ動いているか。どこから先に見に行くべきか。</span>
+      <span>施工した箇所を測るには、どの軌道をどの入射角で撮ればよいか。測れるものは、いつから、どれだけ動いているか。どこから先に見に行くべきか。</span>
     </div>
     <div class="no">
       <b>この画面が答えないこと</b>
-      <span>中の傷み、裏側の空洞、鉄筋の錆。アンカー一本ごとの効き具合。草木に覆われた面の動き。突然崩れる型の崩壊。</span>
+      <span>中の傷み、裏側の空洞、鉄筋の錆。アンカー一本ごとの効き具合。草木に覆われた面の動き。突然崩れる型の崩壊。南北のうち南向きの急斜面は、どの入射角でも感度が落ちます。</span>
     </div>
     <div>
       <b>もとにした資料</b>
@@ -226,7 +226,7 @@ var SITES = [
   "lat": 31.613435,
   "lon": 130.5117701,
   "url": "https://maps.app.goo.gl/rt7LurPq8fdEz94W8",
-  "judge": "good",
+  "judge": "ok",
   "geom": {
    "src": "dem5a",
    "res": 4.07,
@@ -237,21 +237,144 @@ var SITES = [
    "z_min": 18.8,
    "z_max": 106.8,
    "asc": {
-    "local_inc": 18.9,
+    "local_inc": 93.8,
     "sens": 0.988,
-    "verdict": "可"
+    "facing": false,
+    "verdict": "シャドウ"
    },
    "desc": {
-    "local_inc": 88.0,
+    "local_inc": 32.3,
     "sens": 0.362,
-    "verdict": "斜入射"
+    "facing": true,
+    "verdict": "レイオーバー"
    }
   },
   "best": 0.99,
   "orbit": "asc",
+  "inc": 34.0,
+  "incLo": 29.0,
+  "incHi": 34.5,
+  "altVerdict": "斜入射",
+  "span": 5.5,
   "rate": -3.8,
   "onset": 66,
   "seed": 193
+ },
+ {
+  "no": "35-M13",
+  "year": 2017,
+  "client": "北薩地域振興局 出水駐在",
+  "work": "県営農地環境整備事業 上下大迫地区 29-3工区",
+  "place": "薩摩郡さつま町神子地内",
+  "route": "大野1号農道",
+  "methods": [
+   {
+    "n": "590",
+    "q": 370
+   },
+   {
+    "n": "植生マット",
+    "q": 50
+   }
+  ],
+  "h": 14.0,
+  "hl": "法長",
+  "L": 86.02,
+  "area": 1204,
+  "lat": 31.9613734,
+  "lon": 130.4953571,
+  "url": "https://maps.app.goo.gl/r89yzJXEu3QQchk7A",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.05,
+   "stencil_m": 16.2,
+   "slope": 41.5,
+   "aspect": 287,
+   "slope_pin": 1.4,
+   "z_min": 76.4,
+   "z_max": 115.9,
+   "asc": {
+    "local_inc": 19.5,
+    "sens": 0.108,
+    "facing": true,
+    "verdict": "レイオーバー"
+   },
+   "desc": {
+    "local_inc": 80.4,
+    "sens": 0.985,
+    "facing": false,
+    "verdict": "斜入射"
+   }
+  },
+  "best": 0.96,
+  "orbit": "desc",
+  "inc": 33.5,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
+  "rate": null,
+  "onset": null,
+  "seed": 81
+ },
+ {
+  "no": "35-M05",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "道路整備（交付金）工事（大浜５工区）",
+  "place": "大島郡瀬戸内町大浜地内",
+  "route": "曽津高崎線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 653.1
+   },
+   {
+    "n": "MO8",
+    "q": 22.1
+   }
+  ],
+  "h": 39.4,
+  "hl": "法長",
+  "L": 30.0,
+  "area": 1182,
+  "lat": 28.216112,
+  "lon": 129.2455957,
+  "url": "https://maps.app.goo.gl/tPNR1nD8WkgPewNB9",
+  "judge": "good",
+  "geom": {
+   "src": "dem",
+   "res": 8.42,
+   "stencil_m": 16.8,
+   "slope": 36.3,
+   "aspect": 293,
+   "slope_pin": 22.9,
+   "z_min": 6.3,
+   "z_max": 122.1,
+   "asc": {
+    "local_inc": 22.0,
+    "sens": 0.05,
+    "facing": true,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 74.9,
+    "sens": 0.959,
+    "facing": false,
+    "verdict": "可"
+   }
+  },
+  "best": 0.96,
+  "orbit": "desc",
+  "inc": 39.0,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
+  "rate": null,
+  "onset": null,
+  "seed": 95
  },
  {
   "no": "34-M12",
@@ -288,18 +411,25 @@ var SITES = [
    "z_min": 0.0,
    "z_max": 126.1,
    "asc": {
-    "local_inc": 21.9,
+    "local_inc": 85.1,
     "sens": 0.951,
-    "verdict": "可"
+    "facing": false,
+    "verdict": "斜入射"
    },
    "desc": {
-    "local_inc": 76.9,
+    "local_inc": 38.1,
     "sens": 0.348,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    }
   },
   "best": 0.95,
   "orbit": "asc",
+  "inc": 37.0,
+  "incLo": 29.0,
+  "incHi": 40.5,
+  "altVerdict": "斜入射",
+  "span": 11.5,
   "rate": -2.4,
   "onset": 84,
   "seed": 123
@@ -343,18 +473,25 @@ var SITES = [
    "z_min": 23.9,
    "z_max": 64.7,
    "asc": {
-    "local_inc": 14.8,
+    "local_inc": 79.6,
     "sens": 0.955,
-    "verdict": "可"
+    "facing": false,
+    "verdict": "斜入射"
    },
    "desc": {
-    "local_inc": 81.4,
+    "local_inc": 4.3,
     "sens": 0.061,
-    "verdict": "斜入射"
+    "facing": true,
+    "verdict": "レイオーバー"
    }
   },
-  "best": 0.95,
+  "best": 0.94,
   "orbit": "asc",
+  "inc": 34.0,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": null,
   "onset": null,
   "seed": 137
@@ -394,18 +531,25 @@ var SITES = [
    "z_min": 5.5,
    "z_max": 31.2,
    "asc": {
-    "local_inc": 71.7,
+    "local_inc": 31.3,
     "sens": 0.204,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 15.1,
+    "local_inc": 78.3,
     "sens": 0.947,
-    "verdict": "可"
+    "facing": false,
+    "verdict": "斜入射"
    }
   },
-  "best": 0.95,
+  "best": 0.94,
   "orbit": "desc",
+  "inc": 35.0,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": -1.5,
   "onset": null,
   "seed": 165
@@ -445,18 +589,25 @@ var SITES = [
    "z_min": 0.0,
    "z_max": 141.7,
    "asc": {
-    "local_inc": 76.6,
+    "local_inc": 5.2,
     "sens": 0.015,
+    "facing": true,
     "verdict": "可"
    },
    "desc": {
-    "local_inc": 21.0,
+    "local_inc": 72.9,
     "sens": 0.888,
+    "facing": false,
     "verdict": "可"
    }
   },
   "best": 0.89,
   "orbit": "desc",
+  "inc": 41.0,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": null,
   "onset": null,
   "seed": 25
@@ -492,18 +643,25 @@ var SITES = [
    "z_min": 33.1,
    "z_max": 98.6,
    "asc": {
-    "local_inc": 22.3,
+    "local_inc": 70.7,
     "sens": 0.866,
+    "facing": false,
     "verdict": "可"
    },
    "desc": {
-    "local_inc": 74.8,
+    "local_inc": 7.1,
     "sens": 0.04,
+    "facing": true,
     "verdict": "可"
    }
   },
   "best": 0.87,
   "orbit": "asc",
+  "inc": 43.5,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": 0.2,
   "onset": null,
   "seed": 109
@@ -539,21 +697,86 @@ var SITES = [
    "z_min": 0.9,
    "z_max": 158.1,
    "asc": {
-    "local_inc": 63.5,
+    "local_inc": 43.6,
     "sens": 0.353,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 28.3,
+    "local_inc": 73.2,
     "sens": 0.85,
+    "facing": false,
     "verdict": "可"
    }
   },
   "best": 0.85,
   "orbit": "desc",
+  "inc": 39.5,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": null,
   "onset": null,
   "seed": 151
+ },
+ {
+  "no": "35-M02",
+  "year": 2017,
+  "client": "十島村",
+  "work": "29災6号中之島南廻線道路災害復旧工事",
+  "place": "鹿児島郡十島村中之島地内",
+  "route": "中之島　御岳線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 2462
+   },
+   {
+    "n": "MO8",
+    "q": 188
+   }
+  ],
+  "h": 51.0,
+  "hl": "法長",
+  "L": 60.0,
+  "area": 3060,
+  "lat": 29.833327,
+  "lon": 129.9015261,
+  "url": "https://maps.app.goo.gl/bNCXUdYCUBQGRSJq6",
+  "judge": "ok",
+  "geom": {
+   "src": "dem",
+   "res": 8.29,
+   "stencil_m": 16.6,
+   "slope": 56.0,
+   "aspect": 348,
+   "slope_pin": 43.5,
+   "z_min": 24.1,
+   "z_max": 376.8,
+   "asc": {
+    "local_inc": 64.9,
+    "sens": 0.651,
+    "facing": false,
+    "verdict": "シャドウ"
+   },
+   "desc": {
+    "local_inc": 77.6,
+    "sens": 0.793,
+    "facing": false,
+    "verdict": "シャドウ"
+   }
+  },
+  "best": 0.84,
+  "orbit": "desc",
+  "inc": 29.0,
+  "incLo": 29.0,
+  "incHi": 33.5,
+  "altVerdict": "可",
+  "span": 4.5,
+  "rate": -0.5,
+  "onset": null,
+  "seed": 39
  },
  {
   "no": "35-M20",
@@ -586,72 +809,28 @@ var SITES = [
    "z_min": 85.5,
    "z_max": 137.7,
    "asc": {
-    "local_inc": 79.6,
+    "local_inc": 15.2,
     "sens": 0.098,
-    "verdict": "斜入射"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 31.5,
+    "local_inc": 73.0,
     "sens": 0.831,
+    "facing": false,
     "verdict": "可"
    }
   },
   "best": 0.83,
   "orbit": "desc",
+  "inc": 35.5,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": null,
   "onset": null,
   "seed": 207
- },
- {
-  "no": "35-M02",
-  "year": 2017,
-  "client": "十島村",
-  "work": "29災6号中之島南廻線道路災害復旧工事",
-  "place": "鹿児島郡十島村中之島地内",
-  "route": "中之島　御岳線",
-  "methods": [
-   {
-    "n": "法枠工F200",
-    "q": 2462
-   },
-   {
-    "n": "MO8",
-    "q": 188
-   }
-  ],
-  "h": 51.0,
-  "hl": "法長",
-  "L": 60.0,
-  "area": 3060,
-  "lat": 29.833327,
-  "lon": 129.9015261,
-  "url": "https://maps.app.goo.gl/bNCXUdYCUBQGRSJq6",
-  "judge": "good",
-  "geom": {
-   "src": "dem",
-   "res": 8.29,
-   "stencil_m": 16.6,
-   "slope": 56.0,
-   "aspect": 348,
-   "slope_pin": 43.5,
-   "z_min": 24.1,
-   "z_max": 376.8,
-   "asc": {
-    "local_inc": 63.6,
-    "sens": 0.651,
-    "verdict": "可"
-   },
-   "desc": {
-    "local_inc": 49.1,
-    "sens": 0.793,
-    "verdict": "可"
-   }
-  },
-  "best": 0.79,
-  "orbit": "desc",
-  "rate": -0.5,
-  "onset": null,
-  "seed": 39
  },
  {
   "no": "35-M11",
@@ -688,18 +867,25 @@ var SITES = [
    "z_min": 14.3,
    "z_max": 67.1,
    "asc": {
-    "local_inc": 55.3,
+    "local_inc": 50.9,
     "sens": 0.456,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 36.6,
+    "local_inc": 66.6,
     "sens": 0.74,
+    "facing": false,
     "verdict": "可"
    }
   },
   "best": 0.74,
   "orbit": "desc",
+  "inc": 31.0,
+  "incLo": 29.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 17.0,
   "rate": null,
   "onset": null,
   "seed": 53
@@ -735,18 +921,25 @@ var SITES = [
    "z_min": 29.9,
    "z_max": 139.8,
    "asc": {
-    "local_inc": 65.9,
+    "local_inc": 44.6,
     "sens": 0.381,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 58.9,
+    "local_inc": 52.9,
     "sens": 0.494,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    }
   },
-  "best": 0.49,
+  "best": 0.45,
   "orbit": "desc",
+  "inc": 44.0,
+  "incLo": 44.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 2.0,
   "rate": null,
   "onset": null,
   "seed": 67
@@ -786,123 +979,28 @@ var SITES = [
    "z_min": 39.1,
    "z_max": 104.7,
    "asc": {
-    "local_inc": 62.8,
+    "local_inc": 49.9,
     "sens": 0.454,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    },
    "desc": {
-    "local_inc": 63.6,
+    "local_inc": 49.0,
     "sens": 0.442,
-    "verdict": "可"
+    "facing": true,
+    "verdict": "レイオーバー"
    }
   },
-  "best": 0.45,
+  "best": 0.4,
   "orbit": "asc",
+  "inc": 45.0,
+  "incLo": 45.0,
+  "incHi": 46.0,
+  "altVerdict": "可",
+  "span": 1.0,
   "rate": null,
   "onset": null,
   "seed": 179
- },
- {
-  "no": "35-M13",
-  "year": 2017,
-  "client": "北薩地域振興局 出水駐在",
-  "work": "県営農地環境整備事業 上下大迫地区 29-3工区",
-  "place": "薩摩郡さつま町神子地内",
-  "route": "大野1号農道",
-  "methods": [
-   {
-    "n": "590",
-    "q": 370
-   },
-   {
-    "n": "植生マット",
-    "q": 50
-   }
-  ],
-  "h": 14.0,
-  "hl": "法長",
-  "L": 86.02,
-  "area": 1204,
-  "lat": 31.9613734,
-  "lon": 130.4953571,
-  "url": "https://maps.app.goo.gl/r89yzJXEu3QQchk7A",
-  "judge": "hard",
-  "geom": {
-   "src": "dem5a",
-   "res": 4.05,
-   "stencil_m": 16.2,
-   "slope": 41.5,
-   "aspect": 287,
-   "slope_pin": 1.4,
-   "z_min": 76.4,
-   "z_max": 115.9,
-   "asc": {
-    "local_inc": 77.2,
-    "sens": 0.108,
-    "verdict": "可"
-   },
-   "desc": {
-    "local_inc": 3.7,
-    "sens": 0.985,
-    "verdict": "レイオーバー"
-   }
-  },
-  "best": 0.11,
-  "orbit": "asc",
-  "rate": null,
-  "onset": null,
-  "seed": 81
- },
- {
-  "no": "35-M05",
-  "year": 2017,
-  "client": "大島支庁",
-  "work": "道路整備（交付金）工事（大浜５工区）",
-  "place": "大島郡瀬戸内町大浜地内",
-  "route": "曽津高崎線",
-  "methods": [
-   {
-    "n": "法枠工F200",
-    "q": 653.1
-   },
-   {
-    "n": "MO8",
-    "q": 22.1
-   }
-  ],
-  "h": 39.4,
-  "hl": "法長",
-  "L": 30.0,
-  "area": 1182,
-  "lat": 28.216112,
-  "lon": 129.2455957,
-  "url": "https://maps.app.goo.gl/tPNR1nD8WkgPewNB9",
-  "judge": "hard",
-  "geom": {
-   "src": "dem",
-   "res": 8.42,
-   "stencil_m": 16.8,
-   "slope": 36.3,
-   "aspect": 293,
-   "slope_pin": 22.9,
-   "z_min": 6.3,
-   "z_max": 122.1,
-   "asc": {
-    "local_inc": 71.0,
-    "sens": 0.05,
-    "verdict": "可"
-   },
-   "desc": {
-    "local_inc": 6.7,
-    "sens": 0.959,
-    "verdict": "レイオーバー"
-   }
-  },
-  "best": 0.05,
-  "orbit": "asc",
-  "rate": null,
-  "onset": null,
-  "seed": 95
  }
 ];
 
@@ -964,14 +1062,14 @@ var SITES = [
 
     if (mode === "A") {
       b.className = "banner";
-      b.innerHTML = "<b>いま表示しているのは、いただいた工事一覧の中身と、地形から計算した衛星との相性です。</b>" +
-        "国土地理院の標高データから各箇所の斜面の向きを求め、衛星がどちら側から見るかと突き合わせました。" +
-        "衛星の解析そのものはこれからで、動きの数値はまだありません。";
+      b.innerHTML = "<b>いま表示しているのは、いただいた工事一覧の中身と、地形から計算した観測条件です。</b>" +
+        "国土地理院の標高データから斜面の傾きと向きを求め、衛星が真横から見る角度を29度から46度まで振って、" +
+        "影にも潰れにも入らない条件を探しました。衛星の解析そのものはこれからで、動きの数値はまだありません。";
       document.getElementById("listhint").textContent = "見えやすい順";
       tiles.innerHTML =
-        tile("var(--ok)", "d-ok", "向きが良い", cnt.good, "／" + SITES.length + "件", "衛星の見る方向と斜面の向きがよく合っています。動きの6割以上がそのまま測れます。") +
-        tile("var(--watch)", "d-watch", "条件つき", cnt.ok, "／" + SITES.length + "件", "測れますが、斜面の動きのうち衛星の方向に乗るのは半分ほどです。") +
-        tile("var(--ink-3)", "d-small", "向きが厳しい", cnt.hard, "／" + SITES.length + "件", "片方の軌道は真上から潰れて見え、もう片方はほとんど感度がありません。");
+        tile("var(--ok)", "d-ok", "余裕をもって測れる", cnt.good, "／" + SITES.length + "件", "動きの6割以上が測れ、しかも観測の条件に幅があります。どのトラックで撮っても成立します。") +
+        tile("var(--watch)", "d-watch", "条件を選べば測れる", cnt.ok, "／" + SITES.length + "件", "特定の入射角でしか成立しません。トラックを指定して撮る必要があります。") +
+        tile("var(--ink-3)", "d-small", "測れない", cnt.hard, "／" + SITES.length + "件", "入射角をどう選んでも、影か潰れに入ります。");
     } else {
       b.className = "banner warn";
       b.innerHTML = "<b>ここから先の動きの数値は、まだ実際の解析結果ではありません。</b>" +
@@ -1095,28 +1193,33 @@ var SITES = [
         '<span class="act">' + (statusOf(s.rate).k === "alarm" ? "推奨：現地確認を優先" :
           statusOf(s.rate).k === "watch" ? "推奨：次回観測まで据え置き" : "推奨：今回は現地確認の対象外") + '</span></div>';
     } else {
-      var g = s.geom, lab = { good:"向きが良い", ok:"条件つき", hard:"向きが厳しい" }[s.judge];
+      var g = s.geom, lab = { good:"余裕をもって測れる", ok:"条件を選べば測れる", hard:"測れない" }[s.judge];
       var bc = { good:"b-ok", ok:"b-watch", hard:"b-small" }[s.judge];
       var bd = { good:"d-ok", ok:"d-watch", hard:"d-small" }[s.judge];
       head = '<span class="badge ' + bc + '"><i class="dot ' + bd + '"></i>' + lab + '</span>';
-      var orb = s.orbit === "asc" ? "昇り軌道" : s.orbit === "desc" ? "降り軌道" : "どちらの軌道でも";
+      var orb = s.orbit === "asc" ? "昇り軌道" : "降り軌道";
       var body;
       if (s.judge === "hard") {
         body = "斜面は" + g.aspect + "度の方向に" + g.slope + "度で傾いています。" +
-          "降り軌道では真正面すぎて距離の差が出ず、昇り軌道では横から見る形になって、動きのうち衛星の方向に乗るのは" +
-          Math.round(s.best * 100) + "パーセントしかありません。ここは別の軌道か、別の衛星を当てる必要があります。";
+          "入射角を29度から46度まで振っても、影に入るか、画像の中で潰れるかのどちらかになります。" +
+          "この箇所は別の衛星を当てるか、現地に反射板を置く必要があります。";
       } else {
-        body = "斜面は" + g.aspect + "度の方向に" + g.slope + "度で傾いています。" + orb +
-          "から見ると、斜面が滑る動きのうち" + Math.round(s.best * 100) + "パーセントが衛星の方向に乗ります。" +
-          "局所的な入射角は" + g[s.orbit].local_inc + "度で、影にも潰れにも入りません。";
+        body = "斜面は" + g.aspect + "度の方向に" + g.slope + "度で傾いています。" +
+          orb + "を入射角" + s.inc + "度で撮ると、斜面が滑る動きのうち" + Math.round(s.best * 100) +
+          "パーセントが衛星の方向に乗ります。使える入射角は" + s.incLo + "度から" + s.incHi + "度。" +
+          (s.span >= 12 ? "幅が広いので、どのトラックで撮っても成立します。"
+                        : "幅が狭いので、トラックを指定して撮る必要があります。");
       }
+      var vstd = function (o) {
+        return g[o].verdict + "　" + Math.round(g[o].sens * 100) + "%";
+      };
       extra = '<p class="why' + (s.judge === "good" ? " good" : "") + '">' + body + '</p>' +
         '<div class="specs">' +
           '<div><dt>斜面の傾き</dt><dd class="num">' + g.slope + '°</dd></div>' +
           '<div><dt>斜面の向き</dt><dd class="num">' + g.aspect + '°</dd></div>' +
-          '<div><dt>昇り軌道</dt><dd class="num">' + g.asc.verdict + '　' + Math.round(g.asc.sens * 100) + '%</dd></div>' +
-          '<div><dt>降り軌道</dt><dd class="num">' + g.desc.verdict + '　' + Math.round(g.desc.sens * 100) + '%</dd></div>' +
-          '<div><dt>使った標高データ</dt><dd>国土地理院 ' + g.src + '</dd></div>' +
+          '<div><dt>使う軌道</dt><dd>' + orb + '</dd></div>' +
+          '<div><dt>使える入射角</dt><dd class="num">' + s.incLo + '〜' + s.incHi + '°</dd></div>' +
+          '<div><dt>標準の39度なら</dt><dd class="num">昇り ' + vstd("asc") + '／降り ' + vstd("desc") + '　（標高データ ' + g.src + '）</dd></div>' +
         '</div>';
     }
 
