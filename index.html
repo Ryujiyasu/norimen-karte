@@ -3,122 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="鹿児島県事業 のり面カルテ 画面案（サンプルデータ）">
+<meta name="description" content="令和8年度 鹿児島県地域課題解決型衛星データ利活用実証事業 のり面カルテ 画面案">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>&#128752;</text></svg>">
 <style>*{box-sizing:border-box}html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>のり面カルテ</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
   :root {
-    --ink: #16212a;
-    --ink-2: #475763;
-    --ink-3: #6d7d89;
-    --ground: #e7eaec;
-    --surface: #ffffff;
-    --surface-2: #f2f4f6;
-    --rule: #ccd3d9;
-    --rule-soft: #e0e5e9;
-    --accent: #274b63;
-    --accent-soft: #dde5eb;
-    --karte: #2f6b7c;
-    --ok: #2f6b45;
-    --ok-bg: #e4efe7;
-    --watch: #8a6118;
-    --watch-bg: #f6eeda;
-    --alarm: #9c3a29;
-    --alarm-bg: #f7e6e2;
-    --grid: #e3e8ec;
+    --ink:#16212a; --ink-2:#475763; --ink-3:#6d7d89;
+    --ground:#e7eaec; --surface:#ffffff; --surface-2:#f2f4f6;
+    --rule:#ccd3d9; --rule-soft:#e0e5e9;
+    --accent:#274b63; --accent-soft:#dde5eb;
+    --karte:#2f6b7c;
+    --ok:#2f6b45; --ok-bg:#e4efe7;
+    --watch:#8a6118; --watch-bg:#f6eeda;
+    --alarm:#9c3a29; --alarm-bg:#f7e6e2;
+    --grid:#e3e8ec;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ink: #e3e9ed; --ink-2: #a6b3bc; --ink-3: #7d8b95;
-      --ground: #0f161b; --surface: #1a232b; --surface-2: #222d36;
-      --rule: #35434e; --rule-soft: #2a353e;
-      --accent: #8fb8d4; --accent-soft: #23333f;
-      --karte: #6fb2c4;
-      --ok: #7cc094; --ok-bg: #1d2f25;
-      --watch: #d9ac5c; --watch-bg: #322818;
-      --alarm: #e79079; --alarm-bg: #351f1a;
-      --grid: #2b363f;
+      --ink:#e3e9ed; --ink-2:#a6b3bc; --ink-3:#7d8b95;
+      --ground:#0f161b; --surface:#1a232b; --surface-2:#222d36;
+      --rule:#35434e; --rule-soft:#2a353e;
+      --accent:#8fb8d4; --accent-soft:#23333f;
+      --karte:#6fb2c4;
+      --ok:#7cc094; --ok-bg:#1d2f25;
+      --watch:#d9ac5c; --watch-bg:#322818;
+      --alarm:#e79079; --alarm-bg:#351f1a;
+      --grid:#2b363f;
     }
   }
   :root[data-theme="dark"] {
-    --ink: #e3e9ed; --ink-2: #a6b3bc; --ink-3: #7d8b95;
-    --ground: #0f161b; --surface: #1a232b; --surface-2: #222d36;
-    --rule: #35434e; --rule-soft: #2a353e;
-    --accent: #8fb8d4; --accent-soft: #23333f;
-    --karte: #6fb2c4;
-    --ok: #7cc094; --ok-bg: #1d2f25;
-    --watch: #d9ac5c; --watch-bg: #322818;
-    --alarm: #e79079; --alarm-bg: #351f1a;
-    --grid: #2b363f;
+    --ink:#e3e9ed; --ink-2:#a6b3bc; --ink-3:#7d8b95;
+    --ground:#0f161b; --surface:#1a232b; --surface-2:#222d36;
+    --rule:#35434e; --rule-soft:#2a353e;
+    --accent:#8fb8d4; --accent-soft:#23333f;
+    --karte:#6fb2c4;
+    --ok:#7cc094; --ok-bg:#1d2f25;
+    --watch:#d9ac5c; --watch-bg:#322818;
+    --alarm:#e79079; --alarm-bg:#351f1a;
+    --grid:#2b363f;
   }
 
   body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif;
-    line-height: 1.75;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
+    background: var(--ground); color: var(--ink);
+    font-family: "BIZ UDPGothic","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+    line-height: 1.75; font-size: 14px; -webkit-font-smoothing: antialiased;
   }
-  .app { max-width: 1160px; margin: 0 auto; padding: 22px 20px 60px; display: flex; flex-direction: column; gap: 18px; }
+  .app { max-width: 1180px; margin: 0 auto; padding: 20px 20px 60px; display: flex; flex-direction: column; gap: 16px; }
   .num { font-variant-numeric: tabular-nums; }
 
-  /* chrome */
-  .bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
-  .mark { font-family: "Shippori Mincho B1", "Yu Mincho", serif; font-size: 19px; font-weight: 700; }
-  .sample { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 2px 10px; border-radius: 3px; letter-spacing: .04em; }
+  .bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 13px; }
+  .mark { font-family: "Shippori Mincho B1","Yu Mincho",serif; font-size: 19px; font-weight: 700; }
+  .proj { font-size: 12px; color: var(--ink-3); }
   .bar .sp { flex: 1; }
-  .bar .meta { font-size: 12.5px; color: var(--ink-3); }
+  .modes { display: flex; border: 1px solid var(--rule); }
+  .modes button { font: inherit; font-size: 12.5px; padding: 5px 15px; background: var(--surface); color: var(--ink-2); border: 0; cursor: pointer; }
+  .modes button + button { border-left: 1px solid var(--rule); }
+  .modes button[aria-pressed="true"] { background: var(--accent); color: #fff; font-weight: 700; }
+  .modes button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* triage tiles */
-  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
-  .tile { background: var(--surface); border: 1px solid var(--rule-soft); border-top: 3px solid var(--tc); padding: 13px 16px; display: flex; flex-direction: column; gap: 2px; }
+  .banner { padding: 11px 16px; font-size: 12.5px; line-height: 1.7; border-left: 3px solid var(--accent); background: var(--surface); border-top: 1px solid var(--rule-soft); border-right: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .banner b { color: var(--accent); }
+  .banner.warn { border-left-color: var(--alarm); background: var(--alarm-bg); }
+  .banner.warn b { color: var(--alarm); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: 10px; }
+  .tile { background: var(--surface); border: 1px solid var(--rule-soft); border-top: 3px solid var(--tc); padding: 12px 16px; display: flex; flex-direction: column; gap: 1px; }
   .tile .lab { font-size: 12.5px; color: var(--ink-2); display: flex; align-items: center; gap: 7px; }
-  .tile .n { font-size: 29px; font-weight: 700; color: var(--tc); line-height: 1.25; }
-  .tile .n small { font-size: 13px; font-weight: 400; color: var(--ink-3); margin-left: 3px; }
+  .tile .n { font-size: 28px; font-weight: 700; color: var(--tc); line-height: 1.25; }
+  .tile .n small { font-size: 12.5px; font-weight: 400; color: var(--ink-3); margin-left: 3px; }
   .tile .hint { font-size: 11.5px; color: var(--ink-3); line-height: 1.6; }
   .dot { width: 9px; height: 9px; flex: none; }
-  .d-alarm { background: var(--alarm); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+  .d-alarm { background: var(--alarm); clip-path: polygon(50% 0,100% 100%,0 100%); }
   .d-watch { background: var(--watch); border-radius: 1px; }
   .d-ok { background: var(--ok); border-radius: 50%; }
+  .d-small { background: var(--ink-3); clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%); }
 
-  /* main split */
-  .split { display: grid; grid-template-columns: 360px 1fr; gap: 16px; align-items: start; }
-  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-
+  .split { display: grid; grid-template-columns: 380px 1fr; gap: 15px; align-items: start; }
+  @media (max-width: 920px) { .split { grid-template-columns: 1fr; } }
   .panel { background: var(--surface); border: 1px solid var(--rule-soft); }
-  .phead { padding: 12px 16px; border-bottom: 1px solid var(--rule-soft); display: flex; align-items: baseline; gap: 10px; }
-  .phead h2 { font-family: "Shippori Mincho B1", "Yu Mincho", serif; font-size: 15px; margin: 0; font-weight: 700; }
+  .phead { padding: 11px 16px; border-bottom: 1px solid var(--rule-soft); display: flex; align-items: baseline; gap: 10px; }
+  .phead h2 { font-family: "Shippori Mincho B1","Yu Mincho",serif; font-size: 15px; margin: 0; font-weight: 700; }
   .phead span { font-size: 11.5px; color: var(--ink-3); }
 
-  /* list */
-  .rows { display: flex; flex-direction: column; max-height: 560px; overflow-y: auto; }
-  .row { display: grid; grid-template-columns: 12px 1fr 62px 84px; gap: 10px; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--rule-soft); cursor: pointer; background: none; border-left: 3px solid transparent; text-align: left; font: inherit; color: inherit; width: 100%; }
+  .rows { display: flex; flex-direction: column; max-height: 600px; overflow-y: auto; }
+  .row { display: grid; grid-template-columns: 12px 1fr auto; gap: 10px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--rule-soft); cursor: pointer; background: none; border-left: 3px solid transparent; text-align: left; font: inherit; color: inherit; width: 100%; }
   .row:hover { background: var(--surface-2); }
   .row[aria-current="true"] { background: var(--accent-soft); border-left-color: var(--accent); }
   .row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-  .row .id { display: flex; flex-direction: column; gap: 0; min-width: 0; }
-  .row .id b { font-size: 13px; font-weight: 700; }
+  .row .id { display: flex; flex-direction: column; min-width: 0; }
+  .row .id b { font-size: 13px; }
   .row .id em { font-style: normal; font-size: 11px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .row .rate { font-size: 13.5px; font-weight: 700; text-align: right; }
+  .row .rt { display: flex; align-items: center; gap: 9px; }
+  .row .sz { font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+  .row .rate { font-size: 13.5px; font-weight: 700; text-align: right; white-space: nowrap; }
   .row .rate small { font-size: 10px; font-weight: 400; color: var(--ink-3); display: block; line-height: 1.2; }
-  .spark { display: block; }
 
-  /* detail */
-  .dbody { padding: 18px 20px; display: flex; flex-direction: column; gap: 20px; }
-  .dtop { display: flex; flex-direction: column; gap: 8px; }
-  .dtop h3 { font-family: "Shippori Mincho B1", "Yu Mincho", serif; font-size: 21px; margin: 0; font-weight: 700; }
+  .dbody { padding: 18px 20px; display: flex; flex-direction: column; gap: 18px; }
+  .dtop { display: flex; flex-direction: column; gap: 7px; }
+  .dtop h3 { font-family: "Shippori Mincho B1","Yu Mincho",serif; font-size: 20px; margin: 0; font-weight: 700; }
+  .dtop .work { font-size: 13px; color: var(--ink-2); }
   .badge { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; padding: 3px 11px; border-radius: 3px; width: fit-content; }
   .b-alarm { color: var(--alarm); background: var(--alarm-bg); }
   .b-watch { color: var(--watch); background: var(--watch-bg); }
   .b-ok { color: var(--ok); background: var(--ok-bg); }
+  .b-small { color: var(--ink-2); background: var(--surface-2); }
 
-  .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); }
-  .specs div { background: var(--surface); padding: 10px 13px; display: flex; flex-direction: column; gap: 1px; }
+  .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); }
+  .specs div { background: var(--surface); padding: 10px 13px; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
   .specs dt { font-size: 11px; color: var(--ink-3); }
-  .specs dd { margin: 0; font-size: 13.5px; font-weight: 700; }
+  .specs dd { margin: 0; font-size: 13.5px; font-weight: 700; word-break: break-word; }
+  .specs dd a { color: var(--accent); }
+  .specs div:last-child { grid-column: 1 / -1; }
+
+  .why { font-size: 13px; color: var(--ink-2); background: var(--surface-2); padding: 12px 15px; border-left: 3px solid var(--ink-3); line-height: 1.8; }
+  .why.good { border-left-color: var(--ok); }
 
   figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
   .ftitle { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
@@ -127,37 +127,33 @@
   .plot { position: relative; }
   .plot svg { width: 100%; height: auto; display: block; overflow: visible; }
   .gridline { stroke: var(--grid); stroke-width: 1; }
-  .axis-t { fill: var(--ink-3); font-size: 10.5px; font-family: "BIZ UDPGothic", sans-serif; }
+  .axis-t { fill: var(--ink-3); font-size: 10.5px; font-family: "BIZ UDPGothic",sans-serif; }
   .series { fill: none; stroke: var(--karte); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
   .band { fill: var(--karte); opacity: .07; }
   .endcap { fill: var(--karte); stroke: var(--surface); stroke-width: 2; }
-  .endlab { fill: var(--karte); font-size: 11.5px; font-weight: 700; font-family: "BIZ UDPGothic", sans-serif; }
+  .endlab { fill: var(--karte); font-size: 11.5px; font-weight: 700; font-family: "BIZ UDPGothic",sans-serif; }
   .cross { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
   .hovdot { fill: var(--karte); stroke: var(--surface); stroke-width: 2; }
-  .tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--rule); padding: 6px 10px; font-size: 12px; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,.12); transform: translate(-50%, -120%); }
-  .tip b { font-variant-numeric: tabular-nums; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--rule); padding: 6px 10px; font-size: 12px; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,.12); transform: translate(-50%,-120%); }
   figcaption { font-size: 11.5px; color: var(--ink-3); line-height: 1.65; }
-
   details.tbl { border-top: 1px solid var(--rule-soft); padding-top: 8px; }
   details.tbl summary { font-size: 12px; color: var(--ink-2); cursor: pointer; }
-  details.tbl summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .tblwrap { overflow-x: auto; margin-top: 8px; }
   table { border-collapse: collapse; font-size: 12px; width: 100%; }
   th, td { padding: 5px 9px; border-bottom: 1px solid var(--rule-soft); text-align: right; white-space: nowrap; }
   th:first-child, td:first-child { text-align: left; }
   thead th { color: var(--ink-3); font-weight: 400; font-size: 11px; }
 
-  .ai { background: var(--surface-2); border-left: 3px solid var(--accent); padding: 14px 16px; display: flex; flex-direction: column; gap: 7px; }
-  .ai .tagline { font-size: 11px; color: var(--ink-3); display: flex; align-items: center; gap: 7px; }
+  .ai { background: var(--surface-2); border-left: 3px solid var(--accent); padding: 13px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .ai .tagline { font-size: 11px; color: var(--ink-3); }
   .ai p { margin: 0; font-size: 13.5px; line-height: 1.85; }
   .ai .act { font-size: 13px; font-weight: 700; color: var(--accent); }
 
-  .note { background: var(--surface); border: 1px solid var(--rule-soft); padding: 16px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .note { background: var(--surface); border: 1px solid var(--rule-soft); padding: 16px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 18px; }
   .note div { display: flex; flex-direction: column; gap: 4px; }
   .note b { font-size: 13px; }
   .note span { font-size: 12.5px; color: var(--ink-2); line-height: 1.7; }
   .note .no b { color: var(--alarm); }
-  @media (prefers-reduced-motion: no-preference) { .row, .tile { transition: background-color .12s ease; } }
 </style>
 </head>
 <body>
@@ -165,27 +161,24 @@
 
   <div class="bar">
     <span class="mark">のり面カルテ</span>
-    <span class="sample">画面案・サンプルデータ</span>
+    <span class="proj">令和8年度 鹿児島県地域課題解決型衛星データ利活用実証事業</span>
     <span class="sp"></span>
-    <span class="meta">鹿児島県事業 ／ 対象 <b class="num">12</b> 箇所 ／ 観測 2017年1月 〜 2026年8月</span>
+    <div class="modes" role="group" aria-label="表示の切り替え">
+      <button id="mA" aria-pressed="true">台帳（実データ）</button>
+      <button id="mB" aria-pressed="false">解析後のイメージ</button>
+    </div>
   </div>
 
+  <div class="banner" id="banner"></div>
   <div class="tiles" id="tiles"></div>
 
   <div class="split">
     <div class="panel">
-      <div class="phead">
-        <h2>施工箇所</h2>
-        <span>動きの大きい順</span>
-      </div>
-      <div class="rows" id="rows" role="list"></div>
+      <div class="phead"><h2>施工箇所</h2><span id="listhint"></span></div>
+      <div class="rows" id="rows"></div>
     </div>
-
     <div class="panel">
-      <div class="phead">
-        <h2>カルテ</h2>
-        <span>一覧から箇所を選ぶと切り替わります</span>
-      </div>
+      <div class="phead"><h2>カルテ</h2><span>一覧から箇所を選ぶと切り替わります</span></div>
       <div class="dbody" id="detail"></div>
     </div>
   </div>
@@ -193,23 +186,422 @@
   <div class="note">
     <div>
       <b>この画面が答えること</b>
-      <span>施工した箇所のうち、表面が動いているのはどれか。動きはいつから始まったか。どこから先に見に行くべきか。</span>
+      <span>施工した箇所のうち、衛星で追えるのはどれか。追えるものは、いつから、どれだけ動いているか。どこから先に見に行くべきか。</span>
     </div>
     <div class="no">
       <b>この画面が答えないこと</b>
       <span>中の傷み、裏側の空洞、鉄筋の錆。アンカー一本ごとの効き具合。草木に覆われた面の動き。突然崩れる型の崩壊。</span>
     </div>
     <div>
-      <b>表示しているデータについて</b>
-      <span>画面の構成を見ていただくためのサンプルです。実際の施工箇所の情報をいただき次第、本物のデータに差し替えます。</span>
+      <b>もとにした資料</b>
+      <span>葉月工業から提供された元請工事一覧表（2026年9月15日版）のうち、地図の位置が記載された15件。うち1件は「点在」のため座標が取れず、14件を読み込んでいます。</span>
     </div>
   </div>
 
 </div>
 
 <script>
+var SITES = [
+ {
+  "no": "34-M04",
+  "year": 2016,
+  "client": "十島村",
+  "work": "28災266号　平島高原線道路災害復旧工事",
+  "place": "鹿児島郡十島村平島地内",
+  "route": "平島　高原線（南之浜線）",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 4520
+   },
+   {
+    "n": "植生マット",
+    "q": 455
+   }
+  ],
+  "h": 31.0,
+  "hl": "高低差",
+  "L": 119.0,
+  "area": 3689,
+  "lat": 29.681314,
+  "lon": 129.5331643,
+  "url": "https://maps.app.goo.gl/tTptKHRqRfpsVTyx9",
+  "judge": "ok",
+  "rate": -3.8,
+  "onset": 66,
+  "seed": 25
+ },
+ {
+  "no": "35-M02",
+  "year": 2017,
+  "client": "十島村",
+  "work": "29災6号中之島南廻線道路災害復旧工事",
+  "place": "鹿児島郡十島村中之島地内",
+  "route": "中之島　御岳線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 2462
+   },
+   {
+    "n": "MO8",
+    "q": 188
+   }
+  ],
+  "h": 51.0,
+  "hl": "法長",
+  "L": 60.0,
+  "area": 3060,
+  "lat": 29.833327,
+  "lon": 129.9015261,
+  "url": "https://maps.app.goo.gl/bNCXUdYCUBQGRSJq6",
+  "judge": "ok",
+  "rate": -2.4,
+  "onset": 84,
+  "seed": 39
+ },
+ {
+  "no": "35-M11",
+  "year": 2017,
+  "client": "大隅地域振興局",
+  "work": "災害関連緊急砂防工事（磯脇川第一小川２工区）",
+  "place": "垂水市 牛根麓上ノ村地内",
+  "route": "磯脇川第一小川",
+  "methods": [
+   {
+    "n": "簡易法枠",
+    "q": 2140
+   },
+   {
+    "n": "MO8",
+    "q": 102
+   }
+  ],
+  "h": 36.0,
+  "hl": "法長",
+  "L": 58.0,
+  "area": 2088,
+  "lat": 31.560709,
+  "lon": 130.7667381,
+  "url": "https://maps.app.goo.gl/5WUz9VcrP14ytDaK9",
+  "judge": "ok",
+  "rate": -1.5,
+  "onset": null,
+  "seed": 53
+ },
+ {
+  "no": "34-M03",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "通常砂防工事（与蓋川２工区）",
+  "place": "奄美市名瀬朝日町地内",
+  "route": "与蓋川",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 1295
+   }
+  ],
+  "h": 24.0,
+  "hl": "法長",
+  "L": 85.0,
+  "area": 2040,
+  "lat": 28.400136,
+  "lon": 129.5328533,
+  "url": "https://maps.app.goo.gl/zM998Piyxz85M1SNA",
+  "judge": "ok",
+  "rate": -0.5,
+  "onset": null,
+  "seed": 67
+ },
+ {
+  "no": "35-M13",
+  "year": 2017,
+  "client": "北薩地域振興局 出水駐在",
+  "work": "県営農地環境整備事業 上下大迫地区 29-3工区",
+  "place": "薩摩郡さつま町神子地内",
+  "route": "大野1号農道",
+  "methods": [
+   {
+    "n": "590",
+    "q": 370
+   },
+   {
+    "n": "植生マット",
+    "q": 50
+   }
+  ],
+  "h": 14.0,
+  "hl": "法長",
+  "L": 86.02,
+  "area": 1204,
+  "lat": 31.9613734,
+  "lon": 130.4953571,
+  "url": "https://maps.app.goo.gl/r89yzJXEu3QQchk7A",
+  "judge": "ok",
+  "rate": 0.2,
+  "onset": null,
+  "seed": 81
+ },
+ {
+  "no": "35-M05",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "道路整備（交付金）工事（大浜５工区）",
+  "place": "大島郡瀬戸内町大浜地内",
+  "route": "曽津高崎線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 653.1
+   },
+   {
+    "n": "MO8",
+    "q": 22.1
+   }
+  ],
+  "h": 39.4,
+  "hl": "法長",
+  "L": 30.0,
+  "area": 1182,
+  "lat": 28.216112,
+  "lon": 129.2455957,
+  "url": "https://maps.app.goo.gl/tPNR1nD8WkgPewNB9",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 95
+ },
+ {
+  "no": "34-M06",
+  "year": 2016,
+  "client": "長島町",
+  "work": "社会資本整備総合交付金事業　藤之元口之福浦線道路改良工事3工区",
+  "place": "出水郡長島町平尾地内",
+  "route": "藤野元口之福浦線",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 1254
+   }
+  ],
+  "h": 13.5,
+  "hl": "法長",
+  "L": 62.0,
+  "area": 837,
+  "lat": 32.206652,
+  "lon": 130.1390941,
+  "url": "https://maps.app.goo.gl/JTcFDCR84mgYookW8",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 109
+ },
+ {
+  "no": "34-M12",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "第９号県単道路整備（災害防除・防災減災）工事",
+  "place": "大島郡瀬戸内町瀬武地内",
+  "route": "安脚場実久線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 574
+   },
+   {
+    "n": "MO8",
+    "q": 38
+   }
+  ],
+  "h": 21.6,
+  "hl": "法長",
+  "L": 35.0,
+  "area": 756,
+  "lat": 28.1628936,
+  "lon": 129.2156583,
+  "url": "https://maps.app.goo.gl/RBJ5JNQXQgixVijg7",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 123
+ },
+ {
+  "no": "35-M09",
+  "year": 2017,
+  "client": "鹿児島地域振興局",
+  "work": "県立学校施設災害復旧工事",
+  "place": "蒲生高校旧吉田分校 鹿児島市西佐多町地内",
+  "route": "",
+  "methods": [
+   {
+    "n": "法枠工F300",
+    "q": 363
+   },
+   {
+    "n": "鉄筋挿入工D22L3.5",
+    "q": 52
+   },
+   {
+    "n": "植生3",
+    "q": 30
+   }
+  ],
+  "h": 18.6,
+  "hl": "法長",
+  "L": 20.0,
+  "area": 372,
+  "lat": 31.735724,
+  "lon": 130.5623931,
+  "url": "https://maps.app.goo.gl/LMdVeaAmBF5wxpKL9",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 137
+ },
+ {
+  "no": "34-M02",
+  "year": 2016,
+  "client": "大島支庁",
+  "work": "道路災害防除（交付金）工事（俵工区外）",
+  "place": "大島郡瀬戸内町瀬武地内",
+  "route": "安脚場実久線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 292
+   }
+  ],
+  "h": 12.4,
+  "hl": "法長",
+  "L": 29.0,
+  "area": 360,
+  "lat": 28.17213,
+  "lon": 129.2098481,
+  "url": "https://maps.app.goo.gl/DCJbwdJtg1m1yRe36",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 151
+ },
+ {
+  "no": "35-M07",
+  "year": 2017,
+  "client": "鹿児島市",
+  "work": "県単急傾斜地崩壊対策事業（慈眼寺１地区）工事",
+  "place": "鹿児島市下福元町",
+  "route": "",
+  "methods": [
+   {
+    "n": "CO15",
+    "q": 373
+   },
+   {
+    "n": "仮設MO",
+    "q": 107
+   }
+  ],
+  "h": 13.9,
+  "hl": "高低差",
+  "L": 25.6,
+  "area": 356,
+  "lat": 31.515838,
+  "lon": 130.503818,
+  "url": "https://maps.app.goo.gl/ehJ26E7fafoqMmMk9",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 165
+ },
+ {
+  "no": "34-M18",
+  "year": 2017,
+  "client": "鹿児島地域振興局",
+  "work": "農地整備事業（通作・半島） 吉利３期地区 29-1工区",
+  "place": "日置市日吉町吉利地内",
+  "route": "",
+  "methods": [
+   {
+    "n": "MO8ﾒﾝﾌﾘ",
+    "q": 227.5
+   },
+   {
+    "n": "植生3",
+    "q": 1368.8
+   }
+  ],
+  "h": 2.0,
+  "hl": "法長",
+  "L": 93.0,
+  "area": 186,
+  "lat": 31.566836,
+  "lon": 130.3602193,
+  "url": "https://maps.app.goo.gl/7H1QBxs1b7bZUS9X9",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 179
+ },
+ {
+  "no": "34-M07",
+  "year": 2016,
+  "client": "鹿児島市",
+  "work": "県単急傾斜地崩壊対策事業（松之口4地区）工事",
+  "place": "鹿児島市小野三丁目",
+  "route": "",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 206
+   },
+   {
+    "n": "仮設MO",
+    "q": 72
+   }
+  ],
+  "h": 18.0,
+  "hl": "高低差",
+  "L": 7.8,
+  "area": 140,
+  "lat": 31.613435,
+  "lon": 130.5117701,
+  "url": "https://maps.app.goo.gl/rt7LurPq8fdEz94W8",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 193
+ },
+ {
+  "no": "35-M20",
+  "year": 2017,
+  "client": "日置市",
+  "work": "市道下神殿田代線法面補修工事",
+  "place": "日置市伊集院町下神殿地内",
+  "route": "市道下神殿田代線",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 100
+   }
+  ],
+  "h": 9.9,
+  "hl": "法長",
+  "L": 10.0,
+  "area": 99,
+  "lat": 31.658228,
+  "lon": 130.4072841,
+  "url": "https://maps.app.goo.gl/BhJABwtZeJ9vnmk28",
+  "judge": "small",
+  "rate": null,
+  "onset": null,
+  "seed": 207
+ }
+];
+
+
 (function () {
   "use strict";
+  var START_Y = 2017, MONTHS = 116;
 
   function rng(seed) {
     return function () {
@@ -219,223 +611,242 @@
       return ((t ^ t >>> 14) >>> 0) / 4294967296;
     };
   }
-
-  var START_Y = 2017, MONTHS = 116; // 2017-01 .. 2026-08
-
-  var SITES = [
-    { id: "N-07", line: "国道◯◯号 岩崎地区", year: 2017, m: 4,  method: "モルタル吹付",     size: "18m × 72m", face: "西向き 42°", rate: -4.6, onset: 58, seed: 11 },
-    { id: "N-02", line: "県道◯◯号 白木原",   year: 2016, m: 11, method: "グラウンドアンカー", size: "24m × 95m", face: "南西向き 38°", rate: -3.4, onset: 72, seed: 23 },
-    { id: "N-11", line: "国道◯◯号 竹之迫",   year: 2019, m: 3,  method: "法枠 + 植生",      size: "12m × 58m", face: "東向き 45°", rate: -2.6, onset: 84, seed: 37 },
-    { id: "N-05", line: "県道◯◯号 尾木場",   year: 2018, m: 8,  method: "コンクリート吹付", size: "16m × 63m", face: "西向き 36°", rate: -2.1, onset: null, seed: 41 },
-    { id: "N-09", line: "県道◯◯号 平松",     year: 2020, m: 2,  method: "モルタル吹付",     size: "14m × 51m", face: "南東向き 40°", rate: -1.7, onset: null, seed: 53 },
-    { id: "N-03", line: "国道◯◯号 松ヶ野",   year: 2017, m: 9,  method: "法枠吹付",         size: "20m × 88m", face: "西向き 34°", rate: -1.3, onset: null, seed: 67 },
-    { id: "N-12", line: "県道◯◯号 川上",     year: 2022, m: 6,  method: "グラウンドアンカー", size: "22m × 76m", face: "東向き 41°", rate: -0.9, onset: null, seed: 71 },
-    { id: "N-01", line: "国道◯◯号 田上",     year: 2016, m: 5,  method: "モルタル吹付",     size: "15m × 60m", face: "北西向き 37°", rate: -0.6, onset: null, seed: 83 },
-    { id: "N-08", line: "県道◯◯号 春山",     year: 2021, m: 1,  method: "コンクリート吹付", size: "17m × 69m", face: "西向き 39°", rate: -0.4, onset: null, seed: 97 },
-    { id: "N-04", line: "県道◯◯号 谷山港",   year: 2019, m: 12, method: "法枠吹付",         size: "13m × 47m", face: "南向き 35°", rate: -0.3, onset: null, seed: 103 },
-    { id: "N-06", line: "国道◯◯号 皇徳寺",   year: 2023, m: 3,  method: "モルタル吹付",     size: "19m × 81m", face: "東向き 43°", rate: 0.1,  onset: null, seed: 113 },
-    { id: "N-10", line: "県道◯◯号 小山田",   year: 2018, m: 10, method: "法枠 + 植生",      size: "11m × 44m", face: "北東向き 33°", rate: 0.4,  onset: null, seed: 127 }
-  ];
-
-  // build monthly cumulative displacement series (mm, LOS)
   SITES.forEach(function (s) {
-    var r = rng(s.seed), v = 0, out = [];
+    if (s.rate === null) { s.series = null; return; }
+    var r = rng(s.seed), v = 0, o = [];
     for (var i = 0; i < MONTHS; i++) {
-      var perMonth = s.rate / 12;
-      if (s.onset !== null) perMonth = i < s.onset ? s.rate / 12 * 0.25 : s.rate / 12 * 1.7;
-      v += perMonth + (r() - 0.5) * 1.15;
-      out.push(v);
+      var pm = s.rate / 12;
+      if (s.onset !== null) pm = i < s.onset ? s.rate / 12 * 0.25 : s.rate / 12 * 1.7;
+      v += pm + (r() - 0.5) * 1.15; o.push(v);
     }
-    s.series = out;
-    s.total = out[out.length - 1];
+    s.series = o; s.total = o[o.length - 1];
   });
 
-  function statusOf(rate) {
-    if (rate <= -3.0) return { key: "alarm", label: "要確認", cls: "b-alarm", dot: "d-alarm", color: "var(--alarm)" };
-    if (rate <= -1.2) return { key: "watch", label: "経過観察", cls: "b-watch", dot: "d-watch", color: "var(--watch)" };
-    return { key: "ok", label: "安定", cls: "b-ok", dot: "d-ok", color: "var(--ok)" };
+  function statusOf(r) {
+    if (r <= -3.0) return { k:"alarm", label:"要確認", cls:"b-alarm", dot:"d-alarm", color:"var(--alarm)" };
+    if (r <= -1.2) return { k:"watch", label:"経過観察", cls:"b-watch", dot:"d-watch", color:"var(--watch)" };
+    return { k:"ok", label:"安定", cls:"b-ok", dot:"d-ok", color:"var(--ok)" };
+  }
+  function sizeStr(s) {
+    var a = s.h ? (s.hl + " " + s.h + "m") : "";
+    var b = s.L ? ("延長 " + s.L + "m") : "";
+    return [a, b].filter(Boolean).join(" × ") || "記載なし";
+  }
+  function methodStr(s) {
+    return s.methods.map(function (m) { return m.n + (m.q ? " " + m.q : ""); }).join("／") || "記載なし";
+  }
+  function monthLabel(i) { return (START_Y + Math.floor(i / 12)) + "年" + (i % 12 + 1) + "月"; }
+
+  var mode = "A";
+  var listEl = document.getElementById("rows"), detail = document.getElementById("detail");
+  var current = 0;
+
+  function visible() {
+    return mode === "A" ? SITES : SITES.filter(function (s) { return s.series; });
   }
 
-  function monthLabel(i) {
-    var y = START_Y + Math.floor(i / 12), m = (i % 12) + 1;
-    return y + "年" + m + "月";
+  // ---------- chrome ----------
+  function paintChrome() {
+    var okN = SITES.filter(function (s) { return s.judge === "ok"; }).length;
+    var smN = SITES.length - okN;
+    var b = document.getElementById("banner");
+    var tiles = document.getElementById("tiles");
+    document.getElementById("mA").setAttribute("aria-pressed", mode === "A");
+    document.getElementById("mB").setAttribute("aria-pressed", mode === "B");
+
+    if (mode === "A") {
+      b.className = "banner";
+      b.innerHTML = "<b>いま表示しているのは、いただいた工事一覧の中身そのものです。</b>" +
+        "衛星の解析はこれからで、動きの数値はまだありません。まず、どの箇所なら衛星で追えるかを判定した状態です。";
+      document.getElementById("listhint").textContent = "面の広い順";
+      tiles.innerHTML =
+        tile("var(--accent)", "", "読み込んだ箇所", SITES.length, "／15件中", "地図の位置が書かれていた物件。1件は「点在」のため座標が取れませんでした。") +
+        tile("var(--ok)", "d-ok", "衛星で追える", okN, "／" + SITES.length + "件", "衛星のひとマス（約40m四方）に対して十分な広がりがあります。") +
+        tile("var(--ink-3)", "d-small", "解像度が足りない", smN, "／" + SITES.length + "件", "面が小さく、まわりの地面と混ざってしまいます。今回は対象外。");
+    } else {
+      b.className = "banner warn";
+      b.innerHTML = "<b>ここから先の動きの数値は、まだ実際の解析結果ではありません。</b>" +
+        "解析が終わるとこう見える、という画面の見本です。箇所と施工情報は実物ですが、変位はサンプルです。";
+      document.getElementById("listhint").textContent = "動きの大きい順";
+      var vis = visible(), c = { alarm:0, watch:0, ok:0 };
+      vis.forEach(function (s) { c[statusOf(s.rate).k]++; });
+      tiles.innerHTML =
+        tile("var(--alarm)", "d-alarm", "要確認", c.alarm, "／" + vis.length + "件", "年3ミリ以上の動きが続いています。先に見に行く対象です。") +
+        tile("var(--watch)", "d-watch", "経過観察", c.watch, "／" + vis.length + "件", "動いてはいますが、まだ小さい。次の観測を待ちます。") +
+        tile("var(--ok)", "d-ok", "安定", c.ok, "／" + vis.length + "件", "動きが測定の誤差の範囲です。今回は行かなくてよい箇所。");
+    }
+  }
+  function tile(c, dot, lab, n, unit, hint) {
+    return '<div class="tile" style="--tc:' + c + '"><span class="lab">' +
+      (dot ? '<i class="dot ' + dot + '"></i>' : "") + lab + '</span>' +
+      '<span class="n num">' + n + '<small>' + unit + '</small></span>' +
+      '<span class="hint">' + hint + '</span></div>';
   }
 
-  // ---- triage tiles ----
-  var counts = { alarm: 0, watch: 0, ok: 0 };
-  SITES.forEach(function (s) { counts[statusOf(s.rate).key]++; });
-  document.getElementById("tiles").innerHTML = [
-    { k: "alarm", t: "要確認", c: "var(--alarm)", d: "d-alarm", h: "年3ミリ以上の動きが続いています。先に見に行く対象です。" },
-    { k: "watch", t: "経過観察", c: "var(--watch)", d: "d-watch", h: "動いてはいますが、まだ小さい。次の観測を待ちます。" },
-    { k: "ok", t: "安定", c: "var(--ok)", d: "d-ok", h: "動きが測定の誤差の範囲です。今回は行かなくてよい箇所。" }
-  ].map(function (x) {
-    return '<div class="tile" style="--tc:' + x.c + '">' +
-      '<span class="lab"><i class="dot ' + x.d + '"></i>' + x.t + '</span>' +
-      '<span class="n num">' + counts[x.k] + '<small>／12 箇所</small></span>' +
-      '<span class="hint">' + x.h + '</span></div>';
-  }).join("");
-
-  // ---- list ----
-  function sparkPath(series, w, h) {
-    var min = Math.min.apply(null, series), max = Math.max.apply(null, series);
-    var span = (max - min) || 1;
-    return series.map(function (v, i) {
-      var x = (i / (series.length - 1)) * w;
-      var y = h - ((v - min) / span) * h;
-      return (i ? "L" : "M") + x.toFixed(1) + "," + y.toFixed(1);
+  // ---------- list ----------
+  function sparkPath(ser, w, h) {
+    var mn = Math.min.apply(null, ser), mx = Math.max.apply(null, ser), sp = (mx - mn) || 1;
+    return ser.map(function (v, i) {
+      return (i ? "L" : "M") + ((i / (ser.length - 1)) * w).toFixed(1) + "," + (h - ((v - mn) / sp) * h).toFixed(1);
     }).join(" ");
   }
+  function paintList() {
+    var vis = visible();
+    if (mode === "B") vis = vis.slice().sort(function (a, b) { return a.rate - b.rate; });
+    listEl.innerHTML = vis.map(function (s) {
+      var idx = SITES.indexOf(s), right, dot;
+      if (mode === "A") {
+        dot = s.judge === "ok" ? "d-ok" : "d-small";
+        right = '<span class="sz num">' + sizeStr(s) + '</span>';
+      } else {
+        var st = statusOf(s.rate);
+        dot = st.dot;
+        right = '<span class="rt">' +
+          '<span class="rate num" style="color:' + st.color + '">' + s.rate.toFixed(1) + '<small>mm/年</small></span>' +
+          '<svg viewBox="0 0 80 24" width="80" height="24" aria-hidden="true"><path d="' + sparkPath(s.series, 80, 20) +
+          '" fill="none" stroke="' + st.color + '" stroke-width="1.5" transform="translate(0,2)"/></svg></span>';
+      }
+      return '<button class="row" data-i="' + idx + '" aria-current="' + (idx === current) + '">' +
+        '<i class="dot ' + dot + '" aria-hidden="true"></i>' +
+        '<span class="id"><b>' + s.no + '　' + s.year + '年</b><em>' + s.place + '</em></span>' +
+        right + '</button>';
+    }).join("");
+  }
 
-  var rowsEl = document.getElementById("rows");
-  rowsEl.innerHTML = SITES.map(function (s, idx) {
-    var st = statusOf(s.rate);
-    return '<button class="row" role="listitem" data-i="' + idx + '" aria-current="' + (idx === 0) + '">' +
-      '<i class="dot ' + st.dot + '" aria-hidden="true"></i>' +
-      '<span class="id"><b>' + s.id + '</b><em>' + s.line + '</em></span>' +
-      '<span class="rate num" style="color:' + st.color + '">' + s.rate.toFixed(1) + '<small>mm/年</small></span>' +
-      '<svg class="spark" viewBox="0 0 84 24" width="84" height="24" aria-hidden="true">' +
-        '<path d="' + sparkPath(s.series, 84, 20) + '" fill="none" stroke="' + st.color + '" stroke-width="1.5" transform="translate(0,2)"/>' +
-      '</svg></button>';
-  }).join("");
-
-  // ---- chart ----
-  var W = 680, H = 250, ML = 44, MR = 66, MT = 16, MB = 30;
-  var PW = W - ML - MR, PH = H - MT - MB;
-
+  // ---------- chart ----------
+  var W = 680, H = 250, ML = 44, MR = 66, MT = 16, MB = 30, PW = W - ML - MR, PH = H - MT - MB;
   function drawChart(s) {
-    var ser = s.series;
-    var min = Math.min.apply(null, ser), max = Math.max.apply(null, ser);
-    var pad = ((max - min) || 1) * 0.12;
-    var lo = min - pad, hi = max + pad;
+    var ser = s.series, mn = Math.min.apply(null, ser), mx = Math.max.apply(null, ser);
+    var pad = ((mx - mn) || 1) * 0.12, lo = mn - pad, hi = mx + pad;
     var X = function (i) { return ML + (i / (ser.length - 1)) * PW; };
     var Y = function (v) { return MT + PH - ((v - lo) / (hi - lo)) * PH; };
-
     var raw = (hi - lo) / 3, mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10));
     var nice = [1, 2, 2.5, 5, 10].map(function (m) { return m * mag; })
       .filter(function (v) { return v >= raw; })[0] || 10 * mag;
-    var ticks = [];
-    for (var t = Math.ceil(lo / nice) * nice; t <= hi + 1e-9; t += nice) ticks.push(t);
-
-    var grid = ticks.map(function (v) {
-      return '<line class="gridline" x1="' + ML + '" y1="' + Y(v).toFixed(1) + '" x2="' + (ML + PW) + '" y2="' + Y(v).toFixed(1) + '"/>' +
-             '<text class="axis-t" x="' + (ML - 8) + '" y="' + (Y(v) + 3.5).toFixed(1) + '" text-anchor="end">' + v.toFixed(0) + '</text>';
-    }).join("");
-
-    var years = "";
-    for (var i = 0; i < ser.length; i += 24) {
-      years += '<text class="axis-t" x="' + X(i).toFixed(1) + '" y="' + (MT + PH + 18) + '" text-anchor="middle">' + (START_Y + i / 12) + '</text>';
+    var grid = "";
+    for (var t = Math.ceil(lo / nice) * nice; t <= hi + 1e-9; t += nice) {
+      grid += '<line class="gridline" x1="' + ML + '" y1="' + Y(t).toFixed(1) + '" x2="' + (ML + PW) + '" y2="' + Y(t).toFixed(1) + '"/>' +
+        '<text class="axis-t" x="' + (ML - 8) + '" y="' + (Y(t) + 3.5).toFixed(1) + '" text-anchor="end">' + t.toFixed(0) + '</text>';
     }
-
+    var years = "";
+    for (var i = 0; i < ser.length; i += 24)
+      years += '<text class="axis-t" x="' + X(i).toFixed(1) + '" y="' + (MT + PH + 18) + '" text-anchor="middle">' + (START_Y + i / 12) + '</text>';
     var line = ser.map(function (v, i) { return (i ? "L" : "M") + X(i).toFixed(1) + "," + Y(v).toFixed(1); }).join(" ");
-    var area = "M" + X(0).toFixed(1) + "," + Y(0 > hi ? hi : (0 < lo ? lo : 0)).toFixed(1) + " " + line.replace(/^M/, "L") +
-               " L" + X(ser.length - 1).toFixed(1) + "," + Y(0 > hi ? hi : (0 < lo ? lo : 0)).toFixed(1) + " Z";
-
-    var lastX = X(ser.length - 1), lastY = Y(ser[ser.length - 1]);
-
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + s.id +
-      ' の表面の動き。二〇一七年一月から二〇二六年八月までの累積で ' + s.total.toFixed(0) + ' ミリ、年あたり ' + s.rate.toFixed(1) + ' ミリ。">' +
-      grid + years +
-      '<path class="band" d="' + area + '"/>' +
-      '<path class="series" d="' + line + '"/>' +
-      '<circle class="endcap" cx="' + lastX.toFixed(1) + '" cy="' + lastY.toFixed(1) + '" r="4"/>' +
-      '<text class="endlab" x="' + (lastX + 10).toFixed(1) + '" y="' + (lastY + 4).toFixed(1) + '">' + s.total.toFixed(0) + ' mm</text>' +
+    var base = Y(Math.max(lo, Math.min(hi, 0)));
+    var area = "M" + X(0).toFixed(1) + "," + base.toFixed(1) + " " + line.replace(/^M/, "L") +
+      " L" + X(ser.length - 1).toFixed(1) + "," + base.toFixed(1) + " Z";
+    var lx = X(ser.length - 1), ly = Y(ser[ser.length - 1]);
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + s.no +
+      ' の表面の動きの見本。累積 ' + s.total.toFixed(0) + ' ミリ、年あたり ' + s.rate.toFixed(1) + ' ミリ。">' +
+      grid + years + '<path class="band" d="' + area + '"/><path class="series" d="' + line + '"/>' +
+      '<circle class="endcap" cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="4"/>' +
+      '<text class="endlab" x="' + (lx + 10).toFixed(1) + '" y="' + (ly + 4).toFixed(1) + '">' + s.total.toFixed(0) + ' mm</text>' +
       '<line class="cross" id="cx" x1="0" y1="' + MT + '" x2="0" y2="' + (MT + PH) + '" style="display:none"/>' +
       '<circle class="hovdot" id="hd" r="4" style="display:none"/>' +
-      '<rect id="hit" x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '" fill="transparent" style="cursor:crosshair"/>' +
-      '</svg><div class="tip" id="tip" style="display:none"></div>';
+      '<rect id="hit" x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '" fill="transparent" style="cursor:crosshair"/></svg>' +
+      '<div class="tip" id="tip" style="display:none"></div>';
   }
-
-  function yearlyTable(s) {
-    var rows = "";
+  function yearly(s) {
+    var r = "";
     for (var y = 0; y * 12 < s.series.length; y++) {
       var i = Math.min(y * 12 + 11, s.series.length - 1);
-      rows += "<tr><td>" + (START_Y + y) + "年</td><td class='num'>" + s.series[i].toFixed(1) + "</td></tr>";
+      r += "<tr><td>" + (START_Y + y) + "年</td><td class='num'>" + s.series[i].toFixed(1) + "</td></tr>";
     }
-    return '<div class="tblwrap"><table><thead><tr><th>年末時点</th><th>累積の動き（mm）</th></tr></thead><tbody>' + rows + "</tbody></table></div>";
+    return '<div class="tblwrap"><table><thead><tr><th>年末時点</th><th>累積の動き（mm）</th></tr></thead><tbody>' + r + "</tbody></table></div>";
   }
-
   function aiText(s, st) {
-    if (st.key === "alarm") {
-      return "施工から" + (2026 - s.year) + "年が経過。" + (START_Y + Math.floor(s.onset / 12)) +
-        "年ごろから動きが速まり、直近一年は年" + Math.abs(s.rate).toFixed(1) + "ミリで推移しています。" +
-        "累積は" + Math.abs(s.total).toFixed(0) + "ミリ。同じ工法の他の箇所と比べて突出しており、" +
-        s.face + "という条件も動きが見えやすい向きです。現地確認を優先してください。";
-    }
-    if (st.key === "watch") {
-      return "年" + Math.abs(s.rate).toFixed(1) + "ミリの動きが続いています。累積" + Math.abs(s.total).toFixed(0) +
-        "ミリ。ただちに問題となる大きさではありませんが、傾きは一定です。次回の観測で速まっていないかを確認します。";
-    }
-    return "年" + Math.abs(s.rate).toFixed(1) + "ミリ。観測の誤差の範囲に収まっており、" +
-      "施工から" + (2026 - s.year) + "年で目立った動きはありません。今回の現地確認の対象からは外して構いません。";
+    if (st.k === "alarm") return "施工から" + (2026 - s.year) + "年。" + (START_Y + Math.floor(s.onset / 12)) +
+      "年ごろから動きが速まり、直近は年" + Math.abs(s.rate).toFixed(1) + "ミリで推移。累積" + Math.abs(s.total).toFixed(0) +
+      "ミリ。" + s.methods[0].n + "の他の箇所と比べて突出しています。現地確認を優先してください。";
+    if (st.k === "watch") return "年" + Math.abs(s.rate).toFixed(1) + "ミリの動きが続いています。累積" +
+      Math.abs(s.total).toFixed(0) + "ミリ。ただちに問題となる大きさではありませんが、傾きは一定です。次回の観測で速まっていないかを確認します。";
+    return "年" + Math.abs(s.rate).toFixed(1) + "ミリ。観測の誤差の範囲に収まっており、施工から" +
+      (2026 - s.year) + "年で目立った動きはありません。今回の現地確認の対象からは外して構いません。";
   }
 
-  var detail = document.getElementById("detail");
+  // ---------- detail ----------
+  function paintDetail() {
+    var s = SITES[current];
+    var head, extra = "";
+    if (mode === "B" && s.series) {
+      var st = statusOf(s.rate);
+      head = '<span class="badge ' + st.cls + '"><i class="dot ' + st.dot + '"></i>' + st.label + '（サンプル）</span>';
+      extra =
+        '<figure>' +
+          '<div class="ftitle"><b>衛星から見た表面の動き</b><span>サンプル表示／累積・ミリ単位／マイナスは衛星から遠ざかる向き</span></div>' +
+          '<div class="plot">' + drawChart(s) + '</div>' +
+          '<figcaption>2017年1月からの積み上げの見本。実際の解析はこれから行います。細かい上下は大気などによるばらつきで、読むのは全体の傾きです。</figcaption>' +
+          '<details class="tbl"><summary>数値を表で見る</summary>' + yearly(s) + '</details>' +
+        '</figure>' +
+        '<div class="ai"><span class="tagline">AIが下書きした所見の見本（この文章も自動生成されます）</span>' +
+        '<p>' + aiText(s, statusOf(s.rate)) + '</p>' +
+        '<span class="act">' + (statusOf(s.rate).k === "alarm" ? "推奨：現地確認を優先" :
+          statusOf(s.rate).k === "watch" ? "推奨：次回観測まで据え置き" : "推奨：今回は現地確認の対象外") + '</span></div>';
+    } else {
+      var okk = s.judge === "ok";
+      head = '<span class="badge ' + (okk ? "b-ok" : "b-small") + '"><i class="dot ' + (okk ? "d-ok" : "d-small") + '"></i>' +
+        (okk ? "衛星で追える" : "解像度が足りない") + '</span>';
+      extra = '<p class="why' + (okk ? " good" : "") + '">' + sizeStr(s) + '。' +
+        (okk ? "衛星のひとマスはおおよそ40メートル四方です。この面はそれを超える広がりがあるので、まわりの地面と分けて動きを読めます。"
+             : "衛星のひとマスはおおよそ40メートル四方です。この面はそこに収まらないため、まわりの地面と混ざってしまい、動きを分けて読めません。今回の解析の対象からは外れます。") +
+        '</p>';
+    }
 
-  function render(idx) {
-    var s = SITES[idx], st = statusOf(s.rate);
     detail.innerHTML =
-      '<div class="dtop">' +
-        '<span class="badge ' + st.cls + '"><i class="dot ' + st.dot + '"></i>' + st.label + '</span>' +
-        '<h3>' + s.id + '　' + s.line + '</h3>' +
+      '<div class="dtop">' + head +
+        '<h3>' + s.no + '　' + s.place + '</h3>' +
+        '<p class="work">' + s.work + '</p>' +
       '</div>' +
       '<dl class="specs">' +
-        '<div><dt>施工時期</dt><dd class="num">' + s.year + "年" + s.m + '月</dd></div>' +
-        '<div><dt>工法</dt><dd>' + s.method + '</dd></div>' +
-        '<div><dt>規模</dt><dd class="num">' + s.size + '</dd></div>' +
-        '<div><dt>向きと傾き</dt><dd>' + s.face + '</dd></div>' +
-        '<div><dt>年あたりの動き</dt><dd class="num" style="color:' + st.color + '">' + s.rate.toFixed(1) + ' mm</dd></div>' +
-      '</dl>' +
-      '<figure>' +
-        '<div class="ftitle"><b>衛星から見た表面の動き</b><span>累積・ミリ単位／マイナスは衛星から遠ざかる向き</span></div>' +
-        '<div class="plot">' + drawChart(s) + '</div>' +
-        '<figcaption>二〇一七年一月からの積み上げ。ひと月ごとの観測で、細かい上下は大気などによるばらつき。読むのは全体の傾きです。</figcaption>' +
-        '<details class="tbl"><summary>数値を表で見る</summary>' + yearlyTable(s) + '</details>' +
-      '</figure>' +
-      '<div class="ai">' +
-        '<span class="tagline">AIが下書きした所見（この文章も自動生成されます）</span>' +
-        '<p>' + aiText(s, st) + '</p>' +
-        '<span class="act">' + (st.key === "alarm" ? "推奨：現地確認を優先" : st.key === "watch" ? "推奨：次回観測まで据え置き" : "推奨：今回は現地確認の対象外") + '</span>' +
-      '</div>';
+        '<div><dt>発注者</dt><dd>' + s.client + '</dd></div>' +
+        '<div><dt>施工時期</dt><dd class="num">' + s.year + '年</dd></div>' +
+        '<div><dt>路線</dt><dd>' + (s.route || "記載なし") + '</dd></div>' +
+        '<div><dt>工法と数量</dt><dd>' + methodStr(s) + '</dd></div>' +
+        '<div><dt>規模</dt><dd class="num">' + sizeStr(s) + '</dd></div>' +
+        '<div><dt>位置</dt><dd class="num"><a href="' + s.url + '" target="_blank" rel="noopener">' +
+          s.lat.toFixed(5) + ', ' + s.lon.toFixed(5) + '</a></dd></div>' +
+      '</dl>' + extra;
 
-    bindHover(s);
+    if (mode === "B" && s.series) bindHover(s);
   }
 
   function bindHover(s) {
     var svg = detail.querySelector("svg"), hit = detail.querySelector("#hit");
     var cx = detail.querySelector("#cx"), hd = detail.querySelector("#hd"), tip = detail.querySelector("#tip");
     if (!hit) return;
-    var ser = s.series;
-    var min = Math.min.apply(null, ser), max = Math.max.apply(null, ser);
-    var pad = ((max - min) || 1) * 0.12, lo = min - pad, hi = max + pad;
-
-    function move(ev) {
+    var ser = s.series, mn = Math.min.apply(null, ser), mx = Math.max.apply(null, ser);
+    var pad = ((mx - mn) || 1) * 0.12, lo = mn - pad, hi = mx + pad;
+    hit.addEventListener("mousemove", function (ev) {
       var r = svg.getBoundingClientRect();
-      var px = (ev.clientX - r.left) / r.width * W;
-      var i = Math.round((px - ML) / PW * (ser.length - 1));
+      var i = Math.round(((ev.clientX - r.left) / r.width * W - ML) / PW * (ser.length - 1));
       i = Math.max(0, Math.min(ser.length - 1, i));
-      var x = ML + (i / (ser.length - 1)) * PW;
-      var y = MT + PH - ((ser[i] - lo) / (hi - lo)) * PH;
+      var x = ML + (i / (ser.length - 1)) * PW, y = MT + PH - ((ser[i] - lo) / (hi - lo)) * PH;
       cx.setAttribute("x1", x); cx.setAttribute("x2", x); cx.style.display = "";
       hd.setAttribute("cx", x); hd.setAttribute("cy", y); hd.style.display = "";
-      tip.style.display = "";
-      tip.style.left = (x / W * 100) + "%";
-      tip.style.top = (y / H * 100) + "%";
+      tip.style.display = ""; tip.style.left = (x / W * 100) + "%"; tip.style.top = (y / H * 100) + "%";
       tip.innerHTML = monthLabel(i) + "　<b>" + ser[i].toFixed(1) + " mm</b>";
-    }
-    function leave() { cx.style.display = "none"; hd.style.display = "none"; tip.style.display = "none"; }
-    hit.addEventListener("mousemove", move);
-    hit.addEventListener("mouseleave", leave);
+    });
+    hit.addEventListener("mouseleave", function () {
+      cx.style.display = "none"; hd.style.display = "none"; tip.style.display = "none";
+    });
   }
 
-  rowsEl.addEventListener("click", function (ev) {
-    var b = ev.target.closest(".row");
-    if (!b) return;
-    rowsEl.querySelectorAll(".row").forEach(function (r) { r.setAttribute("aria-current", "false"); });
-    b.setAttribute("aria-current", "true");
-    render(+b.dataset.i);
+  function paint() { paintChrome(); paintList(); paintDetail(); }
+
+  listEl.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".row"); if (!b) return;
+    current = +b.dataset.i; paintList(); paintDetail();
+  });
+  document.getElementById("mA").addEventListener("click", function () {
+    mode = "A"; paint();
+  });
+  document.getElementById("mB").addEventListener("click", function () {
+    mode = "B";
+    if (!SITES[current].series) current = SITES.indexOf(visible()[0]);
+    paint();
   });
 
-  render(0);
+  paint();
 })();
 </script>
 </body>
