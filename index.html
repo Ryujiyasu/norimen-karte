@@ -186,7 +186,7 @@
   <div class="note">
     <div>
       <b>この画面が答えること</b>
-      <span>施工した箇所のうち、衛星で追えるのはどれか。追えるものは、いつから、どれだけ動いているか。どこから先に見に行くべきか。</span>
+      <span>施工した箇所のうち、衛星の向きと相性が良いのはどれか。相性の良いものは、いつから、どれだけ動いているか。どこから先に見に行くべきか。</span>
     </div>
     <div class="no">
       <b>この画面が答えないこと</b>
@@ -194,7 +194,7 @@
     </div>
     <div>
       <b>もとにした資料</b>
-      <span>葉月工業から提供された元請工事一覧表（2026年9月15日版）のうち、地図の位置が記載された15件。うち1件は「点在」のため座標が取れず、14件を読み込んでいます。</span>
+      <span>葉月工業から提供された元請工事一覧表（2026年9月15日版）のうち、地図の位置が記載された15件。1件は「点在」のため座標が取れず、14件を読み込んでいます。斜面の傾きと向きは国土地理院の標高データから計算したもので、台帳には含まれていません。</span>
     </div>
   </div>
 
@@ -203,199 +203,55 @@
 <script>
 var SITES = [
  {
-  "no": "34-M04",
+  "no": "34-M07",
   "year": 2016,
-  "client": "十島村",
-  "work": "28災266号　平島高原線道路災害復旧工事",
-  "place": "鹿児島郡十島村平島地内",
-  "route": "平島　高原線（南之浜線）",
+  "client": "鹿児島市",
+  "work": "県単急傾斜地崩壊対策事業（松之口4地区）工事",
+  "place": "鹿児島市小野三丁目",
+  "route": "",
   "methods": [
    {
-    "n": "MO8",
-    "q": 4520
+    "n": "法枠工F200",
+    "q": 206
    },
    {
-    "n": "植生マット",
-    "q": 455
+    "n": "仮設MO",
+    "q": 72
    }
   ],
-  "h": 31.0,
+  "h": 18.0,
   "hl": "高低差",
-  "L": 119.0,
-  "area": 3689,
-  "lat": 29.681314,
-  "lon": 129.5331643,
-  "url": "https://maps.app.goo.gl/tTptKHRqRfpsVTyx9",
-  "judge": "ok",
+  "L": 7.8,
+  "area": 140,
+  "lat": 31.613435,
+  "lon": 130.5117701,
+  "url": "https://maps.app.goo.gl/rt7LurPq8fdEz94W8",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.07,
+   "stencil_m": 16.3,
+   "slope": 55.5,
+   "aspect": 64,
+   "slope_pin": 52.0,
+   "z_min": 18.8,
+   "z_max": 106.8,
+   "asc": {
+    "local_inc": 18.9,
+    "sens": 0.988,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 88.0,
+    "sens": 0.362,
+    "verdict": "斜入射"
+   }
+  },
+  "best": 0.99,
+  "orbit": "asc",
   "rate": -3.8,
   "onset": 66,
-  "seed": 25
- },
- {
-  "no": "35-M02",
-  "year": 2017,
-  "client": "十島村",
-  "work": "29災6号中之島南廻線道路災害復旧工事",
-  "place": "鹿児島郡十島村中之島地内",
-  "route": "中之島　御岳線",
-  "methods": [
-   {
-    "n": "法枠工F200",
-    "q": 2462
-   },
-   {
-    "n": "MO8",
-    "q": 188
-   }
-  ],
-  "h": 51.0,
-  "hl": "法長",
-  "L": 60.0,
-  "area": 3060,
-  "lat": 29.833327,
-  "lon": 129.9015261,
-  "url": "https://maps.app.goo.gl/bNCXUdYCUBQGRSJq6",
-  "judge": "ok",
-  "rate": -2.4,
-  "onset": 84,
-  "seed": 39
- },
- {
-  "no": "35-M11",
-  "year": 2017,
-  "client": "大隅地域振興局",
-  "work": "災害関連緊急砂防工事（磯脇川第一小川２工区）",
-  "place": "垂水市 牛根麓上ノ村地内",
-  "route": "磯脇川第一小川",
-  "methods": [
-   {
-    "n": "簡易法枠",
-    "q": 2140
-   },
-   {
-    "n": "MO8",
-    "q": 102
-   }
-  ],
-  "h": 36.0,
-  "hl": "法長",
-  "L": 58.0,
-  "area": 2088,
-  "lat": 31.560709,
-  "lon": 130.7667381,
-  "url": "https://maps.app.goo.gl/5WUz9VcrP14ytDaK9",
-  "judge": "ok",
-  "rate": -1.5,
-  "onset": null,
-  "seed": 53
- },
- {
-  "no": "34-M03",
-  "year": 2017,
-  "client": "大島支庁",
-  "work": "通常砂防工事（与蓋川２工区）",
-  "place": "奄美市名瀬朝日町地内",
-  "route": "与蓋川",
-  "methods": [
-   {
-    "n": "MO8",
-    "q": 1295
-   }
-  ],
-  "h": 24.0,
-  "hl": "法長",
-  "L": 85.0,
-  "area": 2040,
-  "lat": 28.400136,
-  "lon": 129.5328533,
-  "url": "https://maps.app.goo.gl/zM998Piyxz85M1SNA",
-  "judge": "ok",
-  "rate": -0.5,
-  "onset": null,
-  "seed": 67
- },
- {
-  "no": "35-M13",
-  "year": 2017,
-  "client": "北薩地域振興局 出水駐在",
-  "work": "県営農地環境整備事業 上下大迫地区 29-3工区",
-  "place": "薩摩郡さつま町神子地内",
-  "route": "大野1号農道",
-  "methods": [
-   {
-    "n": "590",
-    "q": 370
-   },
-   {
-    "n": "植生マット",
-    "q": 50
-   }
-  ],
-  "h": 14.0,
-  "hl": "法長",
-  "L": 86.02,
-  "area": 1204,
-  "lat": 31.9613734,
-  "lon": 130.4953571,
-  "url": "https://maps.app.goo.gl/r89yzJXEu3QQchk7A",
-  "judge": "ok",
-  "rate": 0.2,
-  "onset": null,
-  "seed": 81
- },
- {
-  "no": "35-M05",
-  "year": 2017,
-  "client": "大島支庁",
-  "work": "道路整備（交付金）工事（大浜５工区）",
-  "place": "大島郡瀬戸内町大浜地内",
-  "route": "曽津高崎線",
-  "methods": [
-   {
-    "n": "法枠工F200",
-    "q": 653.1
-   },
-   {
-    "n": "MO8",
-    "q": 22.1
-   }
-  ],
-  "h": 39.4,
-  "hl": "法長",
-  "L": 30.0,
-  "area": 1182,
-  "lat": 28.216112,
-  "lon": 129.2455957,
-  "url": "https://maps.app.goo.gl/tPNR1nD8WkgPewNB9",
-  "judge": "small",
-  "rate": null,
-  "onset": null,
-  "seed": 95
- },
- {
-  "no": "34-M06",
-  "year": 2016,
-  "client": "長島町",
-  "work": "社会資本整備総合交付金事業　藤之元口之福浦線道路改良工事3工区",
-  "place": "出水郡長島町平尾地内",
-  "route": "藤野元口之福浦線",
-  "methods": [
-   {
-    "n": "MO8",
-    "q": 1254
-   }
-  ],
-  "h": 13.5,
-  "hl": "法長",
-  "L": 62.0,
-  "area": 837,
-  "lat": 32.206652,
-  "lon": 130.1390941,
-  "url": "https://maps.app.goo.gl/JTcFDCR84mgYookW8",
-  "judge": "small",
-  "rate": null,
-  "onset": null,
-  "seed": 109
+  "seed": 193
  },
  {
   "no": "34-M12",
@@ -421,9 +277,31 @@ var SITES = [
   "lat": 28.1628936,
   "lon": 129.2156583,
   "url": "https://maps.app.goo.gl/RBJ5JNQXQgixVijg7",
-  "judge": "small",
-  "rate": null,
-  "onset": null,
+  "judge": "good",
+  "geom": {
+   "src": "dem",
+   "res": 8.42,
+   "stencil_m": 16.8,
+   "slope": 49.3,
+   "aspect": 49,
+   "slope_pin": 26.3,
+   "z_min": 0.0,
+   "z_max": 126.1,
+   "asc": {
+    "local_inc": 21.9,
+    "sens": 0.951,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 76.9,
+    "sens": 0.348,
+    "verdict": "可"
+   }
+  },
+  "best": 0.95,
+  "orbit": "asc",
+  "rate": -2.4,
+  "onset": 84,
   "seed": 123
  },
  {
@@ -454,35 +332,32 @@ var SITES = [
   "lat": 31.735724,
   "lon": 130.5623931,
   "url": "https://maps.app.goo.gl/LMdVeaAmBF5wxpKL9",
-  "judge": "small",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.06,
+   "stencil_m": 16.3,
+   "slope": 42.5,
+   "aspect": 99,
+   "slope_pin": 26.1,
+   "z_min": 23.9,
+   "z_max": 64.7,
+   "asc": {
+    "local_inc": 14.8,
+    "sens": 0.955,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 81.4,
+    "sens": 0.061,
+    "verdict": "斜入射"
+   }
+  },
+  "best": 0.95,
+  "orbit": "asc",
   "rate": null,
   "onset": null,
   "seed": 137
- },
- {
-  "no": "34-M02",
-  "year": 2016,
-  "client": "大島支庁",
-  "work": "道路災害防除（交付金）工事（俵工区外）",
-  "place": "大島郡瀬戸内町瀬武地内",
-  "route": "安脚場実久線",
-  "methods": [
-   {
-    "n": "法枠工F200",
-    "q": 292
-   }
-  ],
-  "h": 12.4,
-  "hl": "法長",
-  "L": 29.0,
-  "area": 360,
-  "lat": 28.17213,
-  "lon": 129.2098481,
-  "url": "https://maps.app.goo.gl/DCJbwdJtg1m1yRe36",
-  "judge": "small",
-  "rate": null,
-  "onset": null,
-  "seed": 151
  },
  {
   "no": "35-M07",
@@ -508,10 +383,373 @@ var SITES = [
   "lat": 31.515838,
   "lon": 130.503818,
   "url": "https://maps.app.goo.gl/ehJ26E7fafoqMmMk9",
-  "judge": "small",
-  "rate": null,
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.07,
+   "stencil_m": 16.3,
+   "slope": 41.3,
+   "aspect": 306,
+   "slope_pin": 28.0,
+   "z_min": 5.5,
+   "z_max": 31.2,
+   "asc": {
+    "local_inc": 71.7,
+    "sens": 0.204,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 15.1,
+    "sens": 0.947,
+    "verdict": "可"
+   }
+  },
+  "best": 0.95,
+  "orbit": "desc",
+  "rate": -1.5,
   "onset": null,
   "seed": 165
+ },
+ {
+  "no": "34-M04",
+  "year": 2016,
+  "client": "十島村",
+  "work": "28災266号　平島高原線道路災害復旧工事",
+  "place": "鹿児島郡十島村平島地内",
+  "route": "平島　高原線（南之浜線）",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 4520
+   },
+   {
+    "n": "植生マット",
+    "q": 455
+   }
+  ],
+  "h": 31.0,
+  "hl": "高低差",
+  "L": 119.0,
+  "area": 3689,
+  "lat": 29.681314,
+  "lon": 129.5331643,
+  "url": "https://maps.app.goo.gl/tTptKHRqRfpsVTyx9",
+  "judge": "good",
+  "geom": {
+   "src": "dem",
+   "res": 8.3,
+   "stencil_m": 16.6,
+   "slope": 37.8,
+   "aspect": 249,
+   "slope_pin": 21.4,
+   "z_min": 0.0,
+   "z_max": 141.7,
+   "asc": {
+    "local_inc": 76.6,
+    "sens": 0.015,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 21.0,
+    "sens": 0.888,
+    "verdict": "可"
+   }
+  },
+  "best": 0.89,
+  "orbit": "desc",
+  "rate": null,
+  "onset": null,
+  "seed": 25
+ },
+ {
+  "no": "34-M06",
+  "year": 2016,
+  "client": "長島町",
+  "work": "社会資本整備総合交付金事業　藤之元口之福浦線道路改良工事3工区",
+  "place": "出水郡長島町平尾地内",
+  "route": "藤野元口之福浦線",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 1254
+   }
+  ],
+  "h": 13.5,
+  "hl": "法長",
+  "L": 62.0,
+  "area": 837,
+  "lat": 32.206652,
+  "lon": 130.1390941,
+  "url": "https://maps.app.goo.gl/JTcFDCR84mgYookW8",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.04,
+   "stencil_m": 16.2,
+   "slope": 36.2,
+   "aspect": 114,
+   "slope_pin": 22.9,
+   "z_min": 33.1,
+   "z_max": 98.6,
+   "asc": {
+    "local_inc": 22.3,
+    "sens": 0.866,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 74.8,
+    "sens": 0.04,
+    "verdict": "可"
+   }
+  },
+  "best": 0.87,
+  "orbit": "asc",
+  "rate": 0.2,
+  "onset": null,
+  "seed": 109
+ },
+ {
+  "no": "34-M02",
+  "year": 2016,
+  "client": "大島支庁",
+  "work": "道路災害防除（交付金）工事（俵工区外）",
+  "place": "大島郡瀬戸内町瀬武地内",
+  "route": "安脚場実久線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 292
+   }
+  ],
+  "h": 12.4,
+  "hl": "法長",
+  "L": 29.0,
+  "area": 360,
+  "lat": 28.17213,
+  "lon": 129.2098481,
+  "url": "https://maps.app.goo.gl/DCJbwdJtg1m1yRe36",
+  "judge": "good",
+  "geom": {
+   "src": "dem",
+   "res": 8.42,
+   "stencil_m": 16.8,
+   "slope": 41.2,
+   "aspect": 327,
+   "slope_pin": 33.0,
+   "z_min": 0.9,
+   "z_max": 158.1,
+   "asc": {
+    "local_inc": 63.5,
+    "sens": 0.353,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 28.3,
+    "sens": 0.85,
+    "verdict": "可"
+   }
+  },
+  "best": 0.85,
+  "orbit": "desc",
+  "rate": null,
+  "onset": null,
+  "seed": 151
+ },
+ {
+  "no": "35-M20",
+  "year": 2017,
+  "client": "日置市",
+  "work": "市道下神殿田代線法面補修工事",
+  "place": "日置市伊集院町下神殿地内",
+  "route": "市道下神殿田代線",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 100
+   }
+  ],
+  "h": 9.9,
+  "hl": "法長",
+  "L": 10.0,
+  "area": 99,
+  "lat": 31.658228,
+  "lon": 130.4072841,
+  "url": "https://maps.app.goo.gl/BhJABwtZeJ9vnmk28",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.07,
+   "stencil_m": 16.3,
+   "slope": 42.5,
+   "aspect": 234,
+   "slope_pin": 13.9,
+   "z_min": 85.5,
+   "z_max": 137.7,
+   "asc": {
+    "local_inc": 79.6,
+    "sens": 0.098,
+    "verdict": "斜入射"
+   },
+   "desc": {
+    "local_inc": 31.5,
+    "sens": 0.831,
+    "verdict": "可"
+   }
+  },
+  "best": 0.83,
+  "orbit": "desc",
+  "rate": null,
+  "onset": null,
+  "seed": 207
+ },
+ {
+  "no": "35-M02",
+  "year": 2017,
+  "client": "十島村",
+  "work": "29災6号中之島南廻線道路災害復旧工事",
+  "place": "鹿児島郡十島村中之島地内",
+  "route": "中之島　御岳線",
+  "methods": [
+   {
+    "n": "法枠工F200",
+    "q": 2462
+   },
+   {
+    "n": "MO8",
+    "q": 188
+   }
+  ],
+  "h": 51.0,
+  "hl": "法長",
+  "L": 60.0,
+  "area": 3060,
+  "lat": 29.833327,
+  "lon": 129.9015261,
+  "url": "https://maps.app.goo.gl/bNCXUdYCUBQGRSJq6",
+  "judge": "good",
+  "geom": {
+   "src": "dem",
+   "res": 8.29,
+   "stencil_m": 16.6,
+   "slope": 56.0,
+   "aspect": 348,
+   "slope_pin": 43.5,
+   "z_min": 24.1,
+   "z_max": 376.8,
+   "asc": {
+    "local_inc": 63.6,
+    "sens": 0.651,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 49.1,
+    "sens": 0.793,
+    "verdict": "可"
+   }
+  },
+  "best": 0.79,
+  "orbit": "desc",
+  "rate": -0.5,
+  "onset": null,
+  "seed": 39
+ },
+ {
+  "no": "35-M11",
+  "year": 2017,
+  "client": "大隅地域振興局",
+  "work": "災害関連緊急砂防工事（磯脇川第一小川２工区）",
+  "place": "垂水市 牛根麓上ノ村地内",
+  "route": "磯脇川第一小川",
+  "methods": [
+   {
+    "n": "簡易法枠",
+    "q": 2140
+   },
+   {
+    "n": "MO8",
+    "q": 102
+   }
+  ],
+  "h": 36.0,
+  "hl": "法長",
+  "L": 58.0,
+  "area": 2088,
+  "lat": 31.560709,
+  "lon": 130.7667381,
+  "url": "https://maps.app.goo.gl/5WUz9VcrP14ytDaK9",
+  "judge": "good",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.07,
+   "stencil_m": 16.3,
+   "slope": 39.5,
+   "aspect": 343,
+   "slope_pin": 8.3,
+   "z_min": 14.3,
+   "z_max": 67.1,
+   "asc": {
+    "local_inc": 55.3,
+    "sens": 0.456,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 36.6,
+    "sens": 0.74,
+    "verdict": "可"
+   }
+  },
+  "best": 0.74,
+  "orbit": "desc",
+  "rate": null,
+  "onset": null,
+  "seed": 53
+ },
+ {
+  "no": "34-M03",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "通常砂防工事（与蓋川２工区）",
+  "place": "奄美市名瀬朝日町地内",
+  "route": "与蓋川",
+  "methods": [
+   {
+    "n": "MO8",
+    "q": 1295
+   }
+  ],
+  "h": 24.0,
+  "hl": "法長",
+  "L": 85.0,
+  "area": 2040,
+  "lat": 28.400136,
+  "lon": 129.5328533,
+  "url": "https://maps.app.goo.gl/zM998Piyxz85M1SNA",
+  "judge": "ok",
+  "geom": {
+   "src": "dem5b",
+   "res": 4.2,
+   "stencil_m": 16.8,
+   "slope": 43.9,
+   "aspect": 187,
+   "slope_pin": 21.5,
+   "z_min": 29.9,
+   "z_max": 139.8,
+   "asc": {
+    "local_inc": 65.9,
+    "sens": 0.381,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 58.9,
+    "sens": 0.494,
+    "verdict": "可"
+   }
+  },
+  "best": 0.49,
+  "orbit": "desc",
+  "rate": null,
+  "onset": null,
+  "seed": 67
  },
  {
   "no": "34-M18",
@@ -537,64 +775,134 @@ var SITES = [
   "lat": 31.566836,
   "lon": 130.3602193,
   "url": "https://maps.app.goo.gl/7H1QBxs1b7bZUS9X9",
-  "judge": "small",
+  "judge": "ok",
+  "geom": {
+   "src": "dem",
+   "res": 8.14,
+   "stencil_m": 16.3,
+   "slope": 44.9,
+   "aspect": 179,
+   "slope_pin": 16.3,
+   "z_min": 39.1,
+   "z_max": 104.7,
+   "asc": {
+    "local_inc": 62.8,
+    "sens": 0.454,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 63.6,
+    "sens": 0.442,
+    "verdict": "可"
+   }
+  },
+  "best": 0.45,
+  "orbit": "asc",
   "rate": null,
   "onset": null,
   "seed": 179
  },
  {
-  "no": "34-M07",
-  "year": 2016,
-  "client": "鹿児島市",
-  "work": "県単急傾斜地崩壊対策事業（松之口4地区）工事",
-  "place": "鹿児島市小野三丁目",
-  "route": "",
+  "no": "35-M13",
+  "year": 2017,
+  "client": "北薩地域振興局 出水駐在",
+  "work": "県営農地環境整備事業 上下大迫地区 29-3工区",
+  "place": "薩摩郡さつま町神子地内",
+  "route": "大野1号農道",
+  "methods": [
+   {
+    "n": "590",
+    "q": 370
+   },
+   {
+    "n": "植生マット",
+    "q": 50
+   }
+  ],
+  "h": 14.0,
+  "hl": "法長",
+  "L": 86.02,
+  "area": 1204,
+  "lat": 31.9613734,
+  "lon": 130.4953571,
+  "url": "https://maps.app.goo.gl/r89yzJXEu3QQchk7A",
+  "judge": "hard",
+  "geom": {
+   "src": "dem5a",
+   "res": 4.05,
+   "stencil_m": 16.2,
+   "slope": 41.5,
+   "aspect": 287,
+   "slope_pin": 1.4,
+   "z_min": 76.4,
+   "z_max": 115.9,
+   "asc": {
+    "local_inc": 77.2,
+    "sens": 0.108,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 3.7,
+    "sens": 0.985,
+    "verdict": "レイオーバー"
+   }
+  },
+  "best": 0.11,
+  "orbit": "asc",
+  "rate": null,
+  "onset": null,
+  "seed": 81
+ },
+ {
+  "no": "35-M05",
+  "year": 2017,
+  "client": "大島支庁",
+  "work": "道路整備（交付金）工事（大浜５工区）",
+  "place": "大島郡瀬戸内町大浜地内",
+  "route": "曽津高崎線",
   "methods": [
    {
     "n": "法枠工F200",
-    "q": 206
+    "q": 653.1
    },
    {
-    "n": "仮設MO",
-    "q": 72
-   }
-  ],
-  "h": 18.0,
-  "hl": "高低差",
-  "L": 7.8,
-  "area": 140,
-  "lat": 31.613435,
-  "lon": 130.5117701,
-  "url": "https://maps.app.goo.gl/rt7LurPq8fdEz94W8",
-  "judge": "small",
-  "rate": null,
-  "onset": null,
-  "seed": 193
- },
- {
-  "no": "35-M20",
-  "year": 2017,
-  "client": "日置市",
-  "work": "市道下神殿田代線法面補修工事",
-  "place": "日置市伊集院町下神殿地内",
-  "route": "市道下神殿田代線",
-  "methods": [
-   {
     "n": "MO8",
-    "q": 100
+    "q": 22.1
    }
   ],
-  "h": 9.9,
+  "h": 39.4,
   "hl": "法長",
-  "L": 10.0,
-  "area": 99,
-  "lat": 31.658228,
-  "lon": 130.4072841,
-  "url": "https://maps.app.goo.gl/BhJABwtZeJ9vnmk28",
-  "judge": "small",
+  "L": 30.0,
+  "area": 1182,
+  "lat": 28.216112,
+  "lon": 129.2455957,
+  "url": "https://maps.app.goo.gl/tPNR1nD8WkgPewNB9",
+  "judge": "hard",
+  "geom": {
+   "src": "dem",
+   "res": 8.42,
+   "stencil_m": 16.8,
+   "slope": 36.3,
+   "aspect": 293,
+   "slope_pin": 22.9,
+   "z_min": 6.3,
+   "z_max": 122.1,
+   "asc": {
+    "local_inc": 71.0,
+    "sens": 0.05,
+    "verdict": "可"
+   },
+   "desc": {
+    "local_inc": 6.7,
+    "sens": 0.959,
+    "verdict": "レイオーバー"
+   }
+  },
+  "best": 0.05,
+  "orbit": "asc",
   "rate": null,
   "onset": null,
-  "seed": 207
+  "seed": 95
  }
 ];
 
@@ -647,8 +955,8 @@ var SITES = [
 
   // ---------- chrome ----------
   function paintChrome() {
-    var okN = SITES.filter(function (s) { return s.judge === "ok"; }).length;
-    var smN = SITES.length - okN;
+    var cnt = { good: 0, ok: 0, hard: 0 };
+    SITES.forEach(function (s) { cnt[s.judge]++; });
     var b = document.getElementById("banner");
     var tiles = document.getElementById("tiles");
     document.getElementById("mA").setAttribute("aria-pressed", mode === "A");
@@ -656,13 +964,14 @@ var SITES = [
 
     if (mode === "A") {
       b.className = "banner";
-      b.innerHTML = "<b>いま表示しているのは、いただいた工事一覧の中身そのものです。</b>" +
-        "衛星の解析はこれからで、動きの数値はまだありません。まず、どの箇所なら衛星で追えるかを判定した状態です。";
-      document.getElementById("listhint").textContent = "面の広い順";
+      b.innerHTML = "<b>いま表示しているのは、いただいた工事一覧の中身と、地形から計算した衛星との相性です。</b>" +
+        "国土地理院の標高データから各箇所の斜面の向きを求め、衛星がどちら側から見るかと突き合わせました。" +
+        "衛星の解析そのものはこれからで、動きの数値はまだありません。";
+      document.getElementById("listhint").textContent = "見えやすい順";
       tiles.innerHTML =
-        tile("var(--accent)", "", "読み込んだ箇所", SITES.length, "／15件中", "地図の位置が書かれていた物件。1件は「点在」のため座標が取れませんでした。") +
-        tile("var(--ok)", "d-ok", "衛星で追える", okN, "／" + SITES.length + "件", "衛星のひとマス（約40m四方）に対して十分な広がりがあります。") +
-        tile("var(--ink-3)", "d-small", "解像度が足りない", smN, "／" + SITES.length + "件", "面が小さく、まわりの地面と混ざってしまいます。今回は対象外。");
+        tile("var(--ok)", "d-ok", "向きが良い", cnt.good, "／" + SITES.length + "件", "衛星の見る方向と斜面の向きがよく合っています。動きの6割以上がそのまま測れます。") +
+        tile("var(--watch)", "d-watch", "条件つき", cnt.ok, "／" + SITES.length + "件", "測れますが、斜面の動きのうち衛星の方向に乗るのは半分ほどです。") +
+        tile("var(--ink-3)", "d-small", "向きが厳しい", cnt.hard, "／" + SITES.length + "件", "片方の軌道は真上から潰れて見え、もう片方はほとんど感度がありません。");
     } else {
       b.className = "banner warn";
       b.innerHTML = "<b>ここから先の動きの数値は、まだ実際の解析結果ではありません。</b>" +
@@ -696,8 +1005,11 @@ var SITES = [
     listEl.innerHTML = vis.map(function (s) {
       var idx = SITES.indexOf(s), right, dot;
       if (mode === "A") {
-        dot = s.judge === "ok" ? "d-ok" : "d-small";
-        right = '<span class="sz num">' + sizeStr(s) + '</span>';
+        dot = s.judge === "good" ? "d-ok" : (s.judge === "ok" ? "d-watch" : "d-small");
+        var jc = s.judge === "good" ? "var(--ok)" : (s.judge === "ok" ? "var(--watch)" : "var(--ink-3)");
+        right = '<span class="rt"><span class="sz">' + (s.orbit === "asc" ? "昇り" : s.orbit === "desc" ? "降り" : "—") +
+          '</span><span class="rate num" style="color:' + jc + '">' + Math.round(s.best * 100) +
+          '%<small>測れる割合</small></span></span>';
       } else {
         var st = statusOf(s.rate);
         dot = st.dot;
@@ -783,13 +1095,29 @@ var SITES = [
         '<span class="act">' + (statusOf(s.rate).k === "alarm" ? "推奨：現地確認を優先" :
           statusOf(s.rate).k === "watch" ? "推奨：次回観測まで据え置き" : "推奨：今回は現地確認の対象外") + '</span></div>';
     } else {
-      var okk = s.judge === "ok";
-      head = '<span class="badge ' + (okk ? "b-ok" : "b-small") + '"><i class="dot ' + (okk ? "d-ok" : "d-small") + '"></i>' +
-        (okk ? "衛星で追える" : "解像度が足りない") + '</span>';
-      extra = '<p class="why' + (okk ? " good" : "") + '">' + sizeStr(s) + '。' +
-        (okk ? "衛星のひとマスはおおよそ40メートル四方です。この面はそれを超える広がりがあるので、まわりの地面と分けて動きを読めます。"
-             : "衛星のひとマスはおおよそ40メートル四方です。この面はそこに収まらないため、まわりの地面と混ざってしまい、動きを分けて読めません。今回の解析の対象からは外れます。") +
-        '</p>';
+      var g = s.geom, lab = { good:"向きが良い", ok:"条件つき", hard:"向きが厳しい" }[s.judge];
+      var bc = { good:"b-ok", ok:"b-watch", hard:"b-small" }[s.judge];
+      var bd = { good:"d-ok", ok:"d-watch", hard:"d-small" }[s.judge];
+      head = '<span class="badge ' + bc + '"><i class="dot ' + bd + '"></i>' + lab + '</span>';
+      var orb = s.orbit === "asc" ? "昇り軌道" : s.orbit === "desc" ? "降り軌道" : "どちらの軌道でも";
+      var body;
+      if (s.judge === "hard") {
+        body = "斜面は" + g.aspect + "度の方向に" + g.slope + "度で傾いています。" +
+          "降り軌道では真正面すぎて距離の差が出ず、昇り軌道では横から見る形になって、動きのうち衛星の方向に乗るのは" +
+          Math.round(s.best * 100) + "パーセントしかありません。ここは別の軌道か、別の衛星を当てる必要があります。";
+      } else {
+        body = "斜面は" + g.aspect + "度の方向に" + g.slope + "度で傾いています。" + orb +
+          "から見ると、斜面が滑る動きのうち" + Math.round(s.best * 100) + "パーセントが衛星の方向に乗ります。" +
+          "局所的な入射角は" + g[s.orbit].local_inc + "度で、影にも潰れにも入りません。";
+      }
+      extra = '<p class="why' + (s.judge === "good" ? " good" : "") + '">' + body + '</p>' +
+        '<div class="specs">' +
+          '<div><dt>斜面の傾き</dt><dd class="num">' + g.slope + '°</dd></div>' +
+          '<div><dt>斜面の向き</dt><dd class="num">' + g.aspect + '°</dd></div>' +
+          '<div><dt>昇り軌道</dt><dd class="num">' + g.asc.verdict + '　' + Math.round(g.asc.sens * 100) + '%</dd></div>' +
+          '<div><dt>降り軌道</dt><dd class="num">' + g.desc.verdict + '　' + Math.round(g.desc.sens * 100) + '%</dd></div>' +
+          '<div><dt>使った標高データ</dt><dd>国土地理院 ' + g.src + '</dd></div>' +
+        '</div>';
     }
 
     detail.innerHTML =
