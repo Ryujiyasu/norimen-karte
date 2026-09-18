@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>施工箇所マップ｜のり面カルテ</title>
+<meta name="description" content="令和8年度 鹿児島県地域課題解決型衛星データ利活用実証事業 施工箇所マップ">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>&#128752;</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root {
+    --ink:#16212a; --ink-2:#475763; --ink-3:#6d7d89;
+    --ground:#e7eaec; --surface:#ffffff; --surface-2:#f2f4f6;
+    --rule:#ccd3d9; --rule-soft:#e0e5e9;
+    --accent:#274b63; --accent-soft:#dde5eb;
+    --exact:#1d6f8b; --approx:#9a6f26; --other:#8b9198;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:#e3e9ed; --ink-2:#a6b3bc; --ink-3:#7d8b95;
+      --ground:#0f161b; --surface:#1a232b; --surface-2:#222d36;
+      --rule:#35434e; --rule-soft:#2a353e;
+      --accent:#8fb8d4; --accent-soft:#23333f;
+      --exact:#5fb4d0; --approx:#d6a95a; --other:#8d959d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:#e3e9ed; --ink-2:#a6b3bc; --ink-3:#7d8b95;
+    --ground:#0f161b; --surface:#1a232b; --surface-2:#222d36;
+    --rule:#35434e; --rule-soft:#2a353e;
+    --accent:#8fb8d4; --accent-soft:#23333f;
+    --exact:#5fb4d0; --approx:#d6a95a; --other:#8d959d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: "BIZ UDPGothic","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+    font-size: 14px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 18px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+  .bar { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 11px; }
+  .mark { font-family: "Shippori Mincho B1","Yu Mincho",serif; font-size: 18px; font-weight: 700; }
+  .proj { font-size: 12px; color: var(--ink-3); }
+  .bar .sp { flex: 1; }
+  .bar a { font-size: 12.5px; color: var(--accent); }
+
+  .note { background: var(--surface); border: 1px solid var(--rule-soft); border-left: 3px solid var(--approx); padding: 10px 14px; font-size: 12.5px; line-height: 1.7; }
+  .note b { color: var(--approx); }
+
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .controls label { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; background: var(--surface); border: 1px solid var(--rule-soft); padding: 5px 11px; cursor: pointer; }
+  .controls select { font: inherit; font-size: 12.5px; padding: 5px 9px; background: var(--surface); color: var(--ink); border: 1px solid var(--rule-soft); }
+  .controls .count { font-size: 12.5px; color: var(--ink-3); margin-left: auto; }
+  .swatch { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .sw-exact { background: var(--exact); }
+  .sw-approx { background: var(--approx); }
+  .sw-other { background: var(--other); }
+
+  #map { height: 66vh; min-height: 440px; border: 1px solid var(--rule-soft); background: var(--surface-2); }
+  .leaflet-container { font: inherit; background: var(--surface-2); }
+  .leaflet-popup-content-wrapper { border-radius: 2px; }
+  .leaflet-popup-content { margin: 12px 14px; font-size: 12.5px; line-height: 1.75; }
+  .pop h4 { margin: 0 0 4px; font-family: "Shippori Mincho B1","Yu Mincho",serif; font-size: 15px; }
+  .pop .w { color: #444; margin: 0 0 6px; }
+  .pop dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+  .pop dt { color: #777; }
+  .pop dd { margin: 0; }
+  .pop .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 2px; margin-bottom: 5px; }
+  .pop .t-exact { background: #dceaf0; color: #14556b; }
+  .pop .t-approx { background: #f6eeda; color: #6d4f14; }
+  .pop a { color: #1d6f8b; }
+
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--rule-soft); padding: 11px 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  footer { font-size: 11.5px; color: var(--ink-3); line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <span class="mark">施工箇所マップ</span>
+    <span class="proj">令和8年度 鹿児島県地域課題解決型衛星データ利活用実証事業</span>
+    <span class="sp"></span>
+    <a href="./">カルテ画面へ戻る</a>
+  </div>
+
+  <p class="note">
+    <b>青い丸は位置が確定した14件。黄色い丸は住所から当てた概算です。</b>
+    黄色は地名の字までしか分からないため、実際の現場とは中央値で1.5キロほどずれます。
+    地域の見当をつけるためのもので、このままでは解析に使えません。正しい位置へ直していく前の状態です。
+  </p>
+
+  <div class="controls">
+    <label><input type="checkbox" id="fExact" checked> <span class="swatch sw-exact"></span>確定 <b id="nExact"></b></label>
+    <label><input type="checkbox" id="fApprox" checked> <span class="swatch sw-approx"></span>概算 <b id="nApprox"></b></label>
+    <label><input type="checkbox" id="fOther"> <span class="swatch sw-other"></span>のり面以外も表示</label>
+    <select id="fYear"><option value="">全年度</option></select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="legend">
+    <span><span class="swatch sw-exact"></span>位置が確定（地図URLあり・14件）</span>
+    <span><span class="swatch sw-approx"></span>住所からの概算（中央値で約1.5km ずれ）</span>
+    <span><span class="swatch sw-other"></span>のり面以外（区画線・標識など）</span>
+  </div>
+
+  <footer>
+    出典：葉月工業株式会社 元請工事一覧表（2026年9月15日版）。地図は国土地理院タイル。
+    年度は工事番号の期から割り出しています（34期＝2016年度）。
+    概算の座標は国土地理院の住所検索によるもので、確認と修正が必要です。
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="./mapdata.js"></script>
+<script>
+(function () {
+  "use strict";
+  var GSI = 'https://cyberjapandata.gsi.go.jp/xyz/';
+  var ATTR = '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>';
+
+  var pale = L.tileLayer(GSI + 'pale/{z}/{x}/{y}.png', { maxZoom: 18, attribution: ATTR });
+  var std  = L.tileLayer(GSI + 'std/{z}/{x}/{y}.png',  { maxZoom: 18, attribution: ATTR });
+  var photo= L.tileLayer(GSI + 'seamlessphoto/{z}/{x}/{y}.jpg', { maxZoom: 18, attribution: ATTR });
+  var slope= L.tileLayer(GSI + 'slopemap/{z}/{x}/{y}.png', { maxZoom: 15, opacity: .6, attribution: ATTR });
+
+  var map = L.map('map', { layers: [pale], scrollWheelZoom: true });
+  L.control.layers({ '淡色地図': pale, '標準地図': std, '写真': photo }, { '傾斜量図': slope },
+                   { collapsed: false }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var layer = L.layerGroup().addTo(map);
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function popup(w) {
+    var h = '<div class="pop">';
+    h += '<span class="tag ' + (w.fix === 'exact' ? 't-exact">位置は確定' : 't-approx">住所からの概算') + '</span>';
+    h += '<h4>' + esc(w.no) + '　' + esc(w.nendo) + '年度</h4>';
+    if (w.work) h += '<p class="w">' + esc(w.work) + '</p>';
+    h += '<dl>';
+    if (w.client) h += '<dt>発注者</dt><dd>' + esc(w.client) + '</dd>';
+    if (w.place) h += '<dt>地名</dt><dd>' + esc(w.place) + '</dd>';
+    if (w.methods) h += '<dt>工法</dt><dd>' + esc(w.methods) + '</dd>';
+    else if (w.method) h += '<dt>工法</dt><dd>' + esc(w.method) + '</dd>';
+    if (w.size) h += '<dt>規模</dt><dd>' + esc(w.size) + '</dd>';
+    if (w.fix === 'exact' && w.slope != null) {
+      h += '<dt>斜面</dt><dd>' + w.slope + '° / 向き ' + w.aspect + '°</dd>';
+      h += '<dt>観測</dt><dd>' + (w.orbit === 'asc' ? '昇り軌道' : '降り軌道') +
+           '　入射 ' + w.incLo + '〜' + w.incHi + '°<br>動きの ' + Math.round(w.best * 100) + '% が測れます</dd>';
+    }
+    if (w.fix === 'approx') {
+      h += '<dt>当てた住所</dt><dd>' + esc(w.matched || w.addr || '') + '</dd>';
+      h += '<dt>精度</dt><dd>字の中心。実際の現場とは数百mから数kmずれます</dd>';
+    }
+    h += '</dl>';
+    if (w.mapurl && /^https?:/.test(w.mapurl)) {
+      h += '<p style="margin:7px 0 0"><a href="' + esc(w.mapurl) + '" target="_blank" rel="noopener">地図URLを開く</a></p>';
+    }
+    return h + '</div>';
+  }
+
+  function style(w) {
+    if (w.kind === 'のり面以外') {
+      return { radius: 4, color: '#8b9198', weight: 1, fillColor: '#8b9198', fillOpacity: .35 };
+    }
+    if (w.fix === 'exact') {
+      return { radius: 8, color: '#12586f', weight: 2, fillColor: '#1d6f8b', fillOpacity: .85 };
+    }
+    return { radius: 5, color: '#8a6118', weight: 1, fillColor: '#c79433', fillOpacity: .55 };
+  }
+
+  var years = Array.from(new Set(WORKS.map(function (w) { return w.nendo; })
+    .filter(Boolean))).sort();
+  var sel = document.getElementById('fYear');
+  years.forEach(function (y) {
+    var o = document.createElement('option');
+    o.value = y; o.textContent = y + '年度';
+    sel.appendChild(o);
+  });
+
+  document.getElementById('nExact').textContent =
+    '（' + WORKS.filter(function (w) { return w.fix === 'exact'; }).length + '）';
+  document.getElementById('nApprox').textContent =
+    '（' + WORKS.filter(function (w) { return w.fix === 'approx'; }).length + '）';
+
+  function visible() {
+    var ex = document.getElementById('fExact').checked;
+    var ap = document.getElementById('fApprox').checked;
+    var ot = document.getElementById('fOther').checked;
+    var yr = sel.value;
+    return WORKS.filter(function (w) {
+      if (w.kind === 'のり面以外' && !ot) return false;
+      if (w.fix === 'exact' && !ex) return false;
+      if (w.fix === 'approx' && !ap) return false;
+      if (yr && String(w.nendo) !== yr) return false;
+      return true;
+    });
+  }
+
+  var first = true;
+  function draw() {
+    layer.clearLayers();
+    var list = visible(), pts = [];
+    list.forEach(function (w) {
+      var m = L.circleMarker([w.lat, w.lon], style(w));
+      m.bindPopup(popup(w), { maxWidth: 320 });
+      m.bindTooltip(w.no + '　' + (w.place || ''), { direction: 'top' });
+      m.addTo(layer);
+      pts.push([w.lat, w.lon]);
+    });
+    document.getElementById('count').textContent = '表示中 ' + list.length + ' 件 ／ 全 ' + WORKS.length + ' 件';
+    if (pts.length && first) { map.fitBounds(pts, { padding: [30, 30] }); first = false; }
+    else if (pts.length && !first && sel.value) { map.fitBounds(pts, { padding: [30, 30] }); }
+  }
+
+  ['fExact', 'fApprox', 'fOther'].forEach(function (id) {
+    document.getElementById(id).addEventListener('change', draw);
+  });
+  sel.addEventListener('change', draw);
+  draw();
+})();
+</script>
+</body>
+</html>
